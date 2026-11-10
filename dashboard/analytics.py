@@ -1,4 +1,6 @@
-﻿import pandas as pd
+﻿
+import pandas as pd
+from functools import lru_cache
 
 from src.recommendation_engine import (
     products_df,
@@ -6,6 +8,10 @@ from src.recommendation_engine import (
     recommend_materials,
 )
 
+
+# --------------------------------------------------
+# 1. DASHBOARD FILTER OPTIONS
+# --------------------------------------------------
 
 def get_dashboard_filter_options():
     """Return available industry and material category filters."""
@@ -20,12 +26,22 @@ def get_dashboard_filter_options():
     }
 
 
-def calculate_dashboard_data(
+# --------------------------------------------------
+# 2. CACHED DASHBOARD ANALYTICS
+# --------------------------------------------------
+
+@lru_cache(maxsize=8)
+def _calculate_dashboard_data_cached(
     industry=None,
     material_category=None,
     product_search=None,
 ):
-    """Calculate filtered model-based sustainability analytics."""
+    """
+    Calculate dashboard analytics.
+
+    Cache up to eight filter combinations to avoid
+    repeating expensive model predictions.
+    """
 
     selected_products = products_df.copy()
 
@@ -36,6 +52,7 @@ def calculate_dashboard_data(
 
     if product_search:
         search_value = str(product_search).strip().lower()
+
         selected_products = selected_products[
             selected_products["product_id"].astype(str).str.lower().str.contains(
                 search_value, regex=False
@@ -45,6 +62,7 @@ def calculate_dashboard_data(
     product_results = []
     material_usage = []
 
+    # Process products sequentially to control temporary memory use.
     for _, product in selected_products.iterrows():
 
         product_id = product["product_id"]
@@ -110,6 +128,10 @@ def calculate_dashboard_data(
             "industry": product["industry"],
         })
 
+    # --------------------------------------------------
+    # 3. PRODUCT ANALYTICS DATAFRAME
+    # --------------------------------------------------
+
     product_columns = [
         "product_id",
         "product_type",
@@ -141,10 +163,15 @@ def calculate_dashboard_data(
         ],
     )
 
+    # --------------------------------------------------
+    # 4. KPI CALCULATIONS
+    # --------------------------------------------------
+
     total_products = len(selected_products)
     eligible_products = len(product_analytics)
 
     if product_analytics.empty:
+
         kpis = {
             "total_products_in_dataset": total_products,
             "eligible_products": 0,
@@ -155,7 +182,9 @@ def calculate_dashboard_data(
             "average_recommended_cost_inr": 0.0,
             "average_recommended_co2_kg": 0.0,
         }
+
     else:
+
         kpis = {
             "total_products_in_dataset": total_products,
             "eligible_products": eligible_products,
@@ -179,6 +208,10 @@ def calculate_dashboard_data(
             ),
         }
 
+    # --------------------------------------------------
+    # 5. MATERIAL TRENDS
+    # --------------------------------------------------
+
     material_trends = (
         usage_data
         .groupby(
@@ -189,6 +222,10 @@ def calculate_dashboard_data(
         .rename(columns={"size": "recommendation_count"})
         .sort_values("recommendation_count", ascending=False)
     )
+
+    # --------------------------------------------------
+    # 6. INDUSTRY TRENDS
+    # --------------------------------------------------
 
     industry_trends = (
         usage_data
@@ -206,3 +243,37 @@ def calculate_dashboard_data(
         "material_trends": material_trends,
         "industry_trends": industry_trends,
     }
+
+
+# --------------------------------------------------
+# 7. PUBLIC DASHBOARD ANALYTICS FUNCTION
+# --------------------------------------------------
+
+def calculate_dashboard_data(
+    industry=None,
+    material_category=None,
+    product_search=None,
+):
+    """
+    Return cached analytics for the requested filters.
+
+    Identical filter combinations reuse previous results.
+    """
+
+    industry = str(industry).strip() if industry else None
+
+    material_category = (
+        str(material_category).strip()
+        if material_category else None
+    )
+
+    product_search = (
+        str(product_search).strip()
+        if product_search else None
+    )
+
+    return _calculate_dashboard_data_cached(
+        industry,
+        material_category,
+        product_search,
+    )

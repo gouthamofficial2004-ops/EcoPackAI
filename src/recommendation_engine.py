@@ -19,11 +19,7 @@ MATERIALS_FILE = DATA_DIR / "materials_feature_engineered.csv"
 PRODUCTS_FILE = DATA_DIR / "products_cleaned.csv"
 
 PREPROCESSOR_FILE = MODEL_DIR / "preprocessor.pkl"
-
-# Verified compressed cost model
 COST_MODEL_FILE = MODEL_DIR / "cost_random_forest_compressed.pkl"
-
-# Original CO2 model (not compressed)
 CO2_MODEL_FILE = MODEL_DIR / "co2_xgboost.pkl"
 
 MIN_MOISTURE_RESISTANCE = 60
@@ -59,7 +55,6 @@ MODEL_FEATURES = [
     "estimated_packaging_mass",
 ]
 
-
 CUSTOM_PRODUCT_FIELDS = [
     "industry",
     "product_weight_kg",
@@ -71,19 +66,56 @@ CUSTOM_PRODUCT_FIELDS = [
 
 
 # --------------------------------------------------
-# 3. LOAD DATASETS AND TRAINED MODELS
+# 3. LOAD DATASETS
 # --------------------------------------------------
 
+# Small datasets are loaded during application startup.
 materials_df = pd.read_csv(MATERIALS_FILE)
 products_df = pd.read_csv(PRODUCTS_FILE)
 
-preprocessor = joblib.load(PREPROCESSOR_FILE)
-cost_model = joblib.load(COST_MODEL_FILE)
-co2_model = joblib.load(CO2_MODEL_FILE)
+
+# --------------------------------------------------
+# 4. LAZY MODEL LOADING
+# --------------------------------------------------
+
+# Models are NOT loaded during application startup.
+# They are loaded only when a prediction is requested.
+
+preprocessor = None
+cost_model = None
+co2_model = None
+
+
+def load_models():
+
+    global preprocessor
+    global cost_model
+    global co2_model
+
+    # Avoid loading the models repeatedly.
+    if (
+        preprocessor is not None
+        and cost_model is not None
+        and co2_model is not None
+    ):
+        return
+
+    print("Loading EcoPackAI ML models...")
+
+    loaded_preprocessor = joblib.load(PREPROCESSOR_FILE)
+    loaded_cost_model = joblib.load(COST_MODEL_FILE)
+    loaded_co2_model = joblib.load(CO2_MODEL_FILE)
+
+    # Assign only after all three models load successfully.
+    preprocessor = loaded_preprocessor
+    cost_model = loaded_cost_model
+    co2_model = loaded_co2_model
+
+    print("EcoPackAI ML models loaded successfully.")
 
 
 # --------------------------------------------------
-# 4. VALIDATE CONFIGURATION
+# 5. VALIDATE CONFIGURATION
 # --------------------------------------------------
 
 if not np.isclose(sum(RANKING_WEIGHTS.values()), 1.0):
@@ -106,7 +138,7 @@ if not set(MODEL_FEATURES).issubset(
 
 
 # --------------------------------------------------
-# 5. RESULT COLUMNS
+# 6. RESULT COLUMNS
 # --------------------------------------------------
 
 RESULT_COLUMNS = [
@@ -126,7 +158,7 @@ RESULT_COLUMNS = [
 
 
 # --------------------------------------------------
-# 6. INPUT VALIDATION
+# 7. INPUT VALIDATION
 # --------------------------------------------------
 
 def validate_top_n(top_n):
@@ -230,7 +262,7 @@ def validate_custom_product(product_data):
 
 
 # --------------------------------------------------
-# 7. BUILD PRODUCT-MATERIAL CANDIDATES
+# 8. BUILD PRODUCT-MATERIAL CANDIDATES
 # --------------------------------------------------
 
 def build_candidates(product_data):
@@ -242,7 +274,6 @@ def build_candidates(product_data):
         how="cross"
     )
 
-    # Existing synthetic packaging-mass assumption.
     candidates["estimated_packaging_mass"] = (
         0.075 * candidates["product_weight_kg"]
     ).clip(lower=0.025)
@@ -251,10 +282,13 @@ def build_candidates(product_data):
 
 
 # --------------------------------------------------
-# 8. GENERATE MODEL PREDICTIONS
+# 9. GENERATE MODEL PREDICTIONS
 # --------------------------------------------------
 
 def predict_candidates(candidates):
+
+    # Load models only when a prediction is required.
+    load_models()
 
     features = candidates[MODEL_FEATURES].copy()
 
@@ -284,7 +318,7 @@ def predict_candidates(candidates):
 
 
 # --------------------------------------------------
-# 9. RECOMMENDATION ELIGIBILITY
+# 10. RECOMMENDATION ELIGIBILITY
 # --------------------------------------------------
 
 def evaluate_candidates(candidates):
@@ -327,7 +361,7 @@ def evaluate_candidates(candidates):
 
 
 # --------------------------------------------------
-# 10. RECOMMENDATION RANKING
+# 11. RECOMMENDATION RANKING
 # --------------------------------------------------
 
 def rank_candidates(candidates, top_n=10):
@@ -390,31 +424,6 @@ def rank_candidates(candidates, top_n=10):
 
 
 # --------------------------------------------------
-# 11. PREPARE EXISTING PRODUCT CANDIDATES
-# --------------------------------------------------
-
-candidate_analysis = build_candidates(
-    products_df.drop(columns=["product_id", "product_type"]).assign(
-        product_id=products_df["product_id"].values,
-        product_type=products_df["product_type"].values,
-    ).to_dict(orient="records")[0]
-) if False else None
-
-
-# Build the complete existing product-material dataset.
-candidate_analysis = products_df.merge(
-    materials_df,
-    how="cross"
-)
-
-candidate_analysis["estimated_packaging_mass"] = (
-    0.075 * candidate_analysis["product_weight_kg"]
-).clip(lower=0.025)
-
-candidate_analysis = predict_candidates(candidate_analysis)
-
-
-# --------------------------------------------------
 # 12. EXISTING PRODUCT RECOMMENDATIONS
 # --------------------------------------------------
 
@@ -432,9 +441,11 @@ def recommend_materials(product_id, top_n=10):
             f"but found {len(product_matches)}."
         )
 
-    candidates = candidate_analysis[
-        candidate_analysis["product_id"] == product_id
-    ].copy()
+    product_data = product_matches.iloc[0].to_dict()
+
+    candidates = build_candidates(product_data)
+
+    candidates = predict_candidates(candidates)
 
     candidates = evaluate_candidates(candidates)
 
@@ -545,9 +556,11 @@ def diagnose_product(product_id):
             f"Expected one product for {product_id}."
         )
 
-    candidates = candidate_analysis[
-        candidate_analysis["product_id"] == product_id
-    ].copy()
+    product_data = product_matches.iloc[0].to_dict()
+
+    candidates = build_candidates(product_data)
+
+    candidates = predict_candidates(candidates)
 
     candidates = evaluate_candidates(candidates)
 

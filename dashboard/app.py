@@ -1,14 +1,9 @@
 
-
 from io import BytesIO
 import math
 
-import matplotlib
-matplotlib.use("Agg")
-import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-import plotly.express as px
 
 from flask import (
     Blueprint,
@@ -18,7 +13,6 @@ from flask import (
     request,
     send_file,
 )
-from matplotlib.backends.backend_pdf import PdfPages
 
 from dashboard.analytics import (
     calculate_dashboard_data,
@@ -73,9 +67,11 @@ def get_active_filters():
     """Read selected filters from URL query parameters."""
 
     industry = request.args.get("industry", "").strip()
+
     material_category = request.args.get(
         "material_category", ""
     ).strip()
+
     product_search = request.args.get(
         "product_search", ""
     ).strip()
@@ -104,6 +100,9 @@ def get_filtered_dashboard_data(filters=None):
 # --------------------------------------------------
 
 def prepare_dashboard(data):
+
+    # Load Plotly only when the dashboard charts are prepared.
+    import plotly.express as px
 
     product_df = data["product_analytics"]
     material_df = data["material_trends"]
@@ -1047,6 +1046,12 @@ def export_excel():
 
 @dashboard_bp.route("/export/pdf", methods=["GET"])
 def export_pdf():
+
+    # Load Matplotlib only when a PDF report is requested.
+    import matplotlib
+    matplotlib.use("Agg")
+    import matplotlib.pyplot as plt
+    from matplotlib.backends.backend_pdf import PdfPages
 
     try:
 
