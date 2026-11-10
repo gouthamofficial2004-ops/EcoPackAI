@@ -1,0 +1,121 @@
+material_id,material_name,material_category,strength_score,max_weight_capacity_kg,biodegradability_score,recyclability_percent,co2_kg_per_kg_material,cost_inr_per_kg,moisture_resistance_score,durability_score
+M0101,Kraft Paper,Paper,58.1,5.09,94,86,0.834,31.66,26,37
+M0102,Kraft Paper - Variant 02,Paper,50.9,4.99,86,84,0.739,27.19,27,36
+M0103,Kraft Paper - Variant 03,Paper,51.5,4.41,97,91,0.8,29.46,33,42
+M0104,Kraft Paper - Variant 04,Paper,55.5,4.09,94,95,0.797,24.77,31,38
+M0105,Kraft Paper - Variant 05,Paper,48.3,3.96,92,86,0.819,25.85,26,45
+M0106,Kraft Paper - Variant 06,Paper,54.6,4.61,99,83,0.662,25.94,31,31
+M0107,Kraft Paper - Variant 07,Paper,46.7,4.57,98,84,0.8,31.43,29,45
+M0108,Kraft Paper - Variant 08,Paper,53.0,4.75,89,89,0.754,25.54,33,36
+M0109,Kraft Paper - Variant 09,Paper,47.9,4.77,91,81,0.736,28.99,33,44
+M0110,Kraft Paper - Variant 10,Paper,55.3,4.88,98,95,0.763,24.43,25,35
+M0201,Corrugated Board,Paper,71.1,11.42,87,86,0.911,40.39,41,72
+M0202,Corrugated Board - Variant 02,Paper,68.8,12.55,85,75,0.888,42.15,49,63
+M0203,Corrugated Board - Variant 03,Paper,77.6,13.01,92,77,0.938,46.31,46,67
+M0204,Corrugated Board - Variant 04,Paper,75.1,10.22,85,83,0.922,43.08,43,71
+M0205,Corrugated Board - Variant 05,Paper,73.1,12.2,89,79,0.938,44.09,45,62
+M0206,Corrugated Board - Variant 06,Paper,75.7,13.82,90,89,0.86,39.53,49,64
+M0207,Corrugated Board - Variant 07,Paper,72.2,11.11,87,81,0.836,45.26,50,61
+M0208,Corrugated Board - Variant 08,Paper,80.1,12.17,88,77,0.944,42.43,52,72
+M0209,Corrugated Board - Variant 09,Paper,79.1,13.02,91,84,0.839,42.56,42,62
+M0210,Corrugated Board - Variant 10,Paper,67.8,10.19,83,75,1.055,36.16,45,65
+M0301,Molded Pulp,Paper,60.4,8.95,93,92,0.616,23.51,32,52
+M0302,Molded Pulp - Variant 02,Paper,55.5,6.96,100,86,0.671,23.77,32,48
+M0303,Molded Pulp - Variant 03,Paper,61.8,9.25,90,95,0.702,23.78,27,47
+M0304,Molded Pulp - Variant 04,Paper,63.7,9.01,93,91,0.713,24.95,23,42
+M0305,Molded Pulp - Variant 05,Paper,63.7,7.33,92,92,0.693,25.87,27,41
+M0306,Molded Pulp - Variant 06,Paper,63.0,6.66,100,98,0.683,25.92,25,44
+M0307,Molded Pulp - Variant 07,Paper,68.6,8.93,99,98,0.666,20.72,27,55
+M0308,Molded Pulp - Variant 08,Paper,62.9,8.46,98,88,0.746,23.11,23,47
+M0309,Molded Pulp - Variant 09,Paper,68.3,7.73,100,88,0.684,21.89,35,42
+M0310,Molded Pulp - Variant 10,Paper,69.6,7.73,100,95,0.729,21.4,21,43
+M0401,Paperboard,Paper,60.0,6.25,91,83,0.848,30.54,32,47
+M0402,Paperboard - Variant 02,Paper,62.2,6.14,94,86,0.908,32.69,30,39
+M0403,Paperboard - Variant 03,Paper,51.0,5.91,98,85,0.802,28.16,41,49
+M0404,Paperboard - Variant 04,Paper,58.2,5.69,94,94,0.839,30.87,35,46
+M0405,Paperboard - Variant 05,Paper,57.1,6.28,91,84,0.902,29.78,38,51
+M0406,Paperboard - Variant 06,Paper,54.0,5.39,87,94,0.851,30.42,35,50
+M0407,Paperboard - Variant 07,Paper,63.7,6.99,96,90,0.772,34.38,38,46
+M0408,Paperboard - Variant 08,Paper,60.8,6.07,96,91,0.804,25.68,37,41
+M0409,Paperboard - Variant 09,Paper,69.2,6.98,88,84,0.9,29.81,39,41
+M0410,Paperboard - Variant 10,Paper,50.7,6.39,89,95,0.899,31.68,28,41
+M0501,Bagasse Fiber,Plant Fiber,69.5,9.32,88,93,0.654,38.2,33,50
+M0502,Bagasse Fiber - Variant 02,Plant Fiber,68.6,7.72,94,91,0.712,37.3,38,48
+M0503,Bagasse Fiber - Variant 03,Plant Fiber,70.2,9.64,99,97,0.784,30.5,39,61
+M0504,Bagasse Fiber - Variant 04,Plant Fiber,62.7,7.82,100,97,0.688,31.51,44,56
+M0505,Bagasse Fiber - Variant 05,Plant Fiber,67.6,7.86,100,92,0.783,31.32,47,58
+M0506,Bagasse Fiber - Variant 06,Plant Fiber,68.5,9.09,93,92,0.695,37.49,39,54
+M0507,Bagasse Fiber - Variant 07,Plant Fiber,70.3,7.61,95,94,0.786,38.31,39,55
+M0508,Bagasse Fiber - Variant 08,Plant Fiber,67.8,7.65,89,88,0.743,32.52,45,59
+M0509,Bagasse Fiber - Variant 09,Plant Fiber,66.8,7.01,98,94,0.727,38.46,40,61
+M0510,Bagasse Fiber - Variant 10,Plant Fiber,70.0,9.88,88,86,0.745,37.97,34,54
+M0601,Bamboo Fiber,Plant Fiber,74.3,9.74,93,84,0.834,44.0,51,70
+M0602,Bamboo Fiber - Variant 02,Plant Fiber,76.1,8.38,93,94,0.828,37.73,42,67
+M0603,Bamboo Fiber - Variant 03,Plant Fiber,73.4,9.98,94,82,0.871,41.8,39,67
+M0604,Bamboo Fiber - Variant 04,Plant Fiber,65.9,11.73,84,92,0.983,40.16,45,59
+M0605,Bamboo Fiber - Variant 05,Plant Fiber,75.2,10.68,92,90,0.804,44.59,46,63
+M0606,Bamboo Fiber - Variant 06,Plant Fiber,70.0,10.88,85,86,0.845,35.2,39,59
+M0607,Bamboo Fiber - Variant 07,Plant Fiber,78.3,9.8,92,81,0.898,36.93,48,68
+M0608,Bamboo Fiber - Variant 08,Plant Fiber,73.5,10.97,88,86,0.806,37.47,41,60
+M0609,Bamboo Fiber - Variant 09,Plant Fiber,79.0,9.86,86,81,0.829,43.11,52,61
+M0610,Bamboo Fiber - Variant 10,Plant Fiber,75.8,8.68,95,85,0.906,34.26,42,68
+M0701,PLA Bioplastic,Bioplastic,54.6,6.39,80,46,2.044,56.9,53,37
+M0702,PLA Bioplastic - Variant 02,Bioplastic,54.4,4.75,77,42,1.628,64.06,51,41
+M0703,PLA Bioplastic - Variant 03,Bioplastic,62.9,4.53,75,52,1.871,59.58,49,47
+M0704,PLA Bioplastic - Variant 04,Bioplastic,60.5,5.31,79,50,2.067,64.37,53,39
+M0705,PLA Bioplastic - Variant 05,Bioplastic,62.3,5.74,80,50,2.036,55.31,62,39
+M0706,PLA Bioplastic - Variant 06,Bioplastic,60.4,5.53,79,53,1.753,65.23,50,42
+M0707,PLA Bioplastic - Variant 07,Bioplastic,56.9,5.68,72,43,1.85,51.45,57,37
+M0708,PLA Bioplastic - Variant 08,Bioplastic,58.2,6.41,80,54,1.796,66.34,63,45
+M0709,PLA Bioplastic - Variant 09,Bioplastic,57.3,4.66,77,48,1.709,50.0,54,42
+M0710,PLA Bioplastic - Variant 10,Bioplastic,61.7,4.68,71,55,2.065,56.17,52,38
+M0801,Recycled PET,Plastic,82.7,16.4,16,71,2.577,59.35,61,79
+M0802,Recycled PET - Variant 02,Plastic,76.6,13.24,15,72,2.305,68.88,73,78
+M0803,Recycled PET - Variant 03,Plastic,83.7,13.26,24,69,2.614,60.37,65,72
+M0804,Recycled PET - Variant 04,Plastic,80.0,15.49,20,68,2.507,57.03,69,75
+M0805,Recycled PET - Variant 05,Plastic,86.3,14.59,28,67,2.307,57.96,74,86
+M0806,Recycled PET - Variant 06,Plastic,80.3,13.33,29,71,2.241,55.5,64,81
+M0807,Recycled PET - Variant 07,Plastic,79.2,12.69,28,77,2.095,57.82,70,79
+M0808,Recycled PET - Variant 08,Plastic,78.0,12.86,23,73,2.245,68.32,65,84
+M0809,Recycled PET - Variant 09,Plastic,85.3,16.02,25,71,2.07,56.09,74,81
+M0810,Recycled PET - Variant 10,Plastic,80.9,13.69,21,72,2.284,67.33,62,84
+M0901,HDPE,Plastic,90.0,19.25,22,39,2.085,65.59,89,81
+M0902,HDPE - Variant 02,Plastic,79.4,21.08,12,32,2.228,68.93,81,83
+M0903,HDPE - Variant 03,Plastic,79.4,17.26,18,43,2.441,80.89,85,83
+M0904,HDPE - Variant 04,Plastic,88.9,15.4,10,43,2.385,78.76,81,84
+M0905,HDPE - Variant 05,Plastic,89.0,20.31,18,40,2.364,71.79,85,85
+M0906,HDPE - Variant 06,Plastic,85.1,16.41,19,38,2.33,87.07,77,90
+M0907,HDPE - Variant 07,Plastic,83.4,16.86,19,40,2.197,67.4,78,93
+M0908,HDPE - Variant 08,Plastic,83.9,18.97,16,42,2.297,68.18,79,85
+M0909,HDPE - Variant 09,Plastic,93.5,17.09,20,39,2.23,82.6,77,82
+M0910,HDPE - Variant 10,Plastic,83.5,20.72,19,36,2.188,86.32,87,94
+M1001,Polypropylene,Plastic,86.9,17.23,7,36,2.727,84.08,80,76
+M1002,Polypropylene - Variant 02,Plastic,80.1,18.22,19,28,2.253,90.62,77,74
+M1003,Polypropylene - Variant 03,Plastic,88.7,15.03,14,33,2.536,86.26,78,80
+M1004,Polypropylene - Variant 04,Plastic,90.3,15.91,11,30,2.73,84.1,77,71
+M1005,Polypropylene - Variant 05,Plastic,83.9,18.17,13,27,2.381,78.52,77,81
+M1006,Polypropylene - Variant 06,Plastic,78.3,13.36,7,36,2.631,74.89,78,80
+M1007,Polypropylene - Variant 07,Plastic,89.9,17.66,18,25,2.73,67.18,83,73
+M1008,Polypropylene - Variant 08,Plastic,81.9,13.13,15,24,2.317,71.81,86,73
+M1009,Polypropylene - Variant 09,Plastic,85.3,16.7,11,28,2.367,89.89,84,79
+M1010,Polypropylene - Variant 10,Plastic,86.0,18.09,6,23,2.189,81.47,78,80
+M1101,Glass,Glass,91.7,22.05,0,94,1.239,102.47,100,96
+M1102,Glass - Variant 02,Glass,94.9,25.12,0,100,1.12,80.97,100,94
+M1103,Glass - Variant 03,Glass,87.9,28.38,7,97,1.138,105.45,89,100
+M1104,Glass - Variant 04,Glass,96.2,29.34,4,95,1.251,86.07,100,100
+M1105,Glass - Variant 05,Glass,94.1,26.87,2,93,1.106,102.28,89,100
+M1106,Glass - Variant 06,Glass,86.6,26.02,0,100,1.284,89.6,89,95
+M1107,Glass - Variant 07,Glass,89.1,24.47,0,100,1.234,78.33,96,98
+M1108,Glass - Variant 08,Glass,94.4,28.93,0,95,1.206,95.79,95,100
+M1109,Glass - Variant 09,Glass,92.4,24.3,7,98,1.25,79.2,95,100
+M1110,Glass - Variant 10,Glass,99.4,27.24,4,100,1.292,78.41,95,100
+M1201,Aluminium,Metal,97.0,31.73,0,91,9.979,99.34,100,100
+M1202,Aluminium - Variant 02,Metal,100.0,32.54,6,100,10.394,99.62,100,95
+M1203,Aluminium - Variant 03,Metal,93.9,31.86,3,99,8.719,89.54,100,100
+M1204,Aluminium - Variant 04,Metal,100.0,32.69,0,100,8.765,95.2,99,100
+M1205,Aluminium - Variant 05,Metal,93.5,33.15,3,97,10.145,83.32,94,97
+M1206,Aluminium - Variant 06,Metal,100.0,29.68,0,93,8.999,88.85,95,98
+M1207,Aluminium - Variant 07,Metal,99.1,35.15,3,100,9.189,103.15,97,100
+M1208,Aluminium - Variant 08,Metal,91.4,26.24,0,94,9.229,95.88,100,96
+M1209,Aluminium - Variant 09,Metal,98.7,30.8,0,98,10.075,100.13,100,100
+M1210,Aluminium - Variant 10,Metal,91.6,32.54,0,93,10.073,87.21,97,96

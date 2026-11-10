@@ -1,0 +1,1762 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#123D2B" />
+    <meta
+      name="description"
+      content="EcoPackAI helps you discover intelligent, sustainable packaging materials using AI-powered recommendations."
+    />
+
+    <title>EcoPackAI | Smarter Sustainable Packaging</title>
+
+    <!-- Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- EcoPackAI typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Main stylesheet -->
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+
+    <style>
+      /* =================================================
+       SHOWCASE IMAGE
+    ================================================= */
+
+      .showcase-section {
+        padding: 54px 0 65px;
+        background: var(--canvas, #f7f8f3);
+      }
+
+      .showcase-frame {
+        position: relative;
+        overflow: hidden;
+        border-radius: 24px;
+        background: #e9e8df;
+        box-shadow: 0 18px 55px rgba(18, 61, 43, 0.12);
+        border: 1px solid rgba(18, 61, 43, 0.09);
+      }
+
+      .showcase-frame img {
+        display: block;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1672 / 941;
+        object-fit: contain;
+        transition: transform 0.6s ease;
+      }
+
+      .showcase-frame:hover img {
+        transform: scale(1.012);
+      }
+
+      .showcase-caption {
+        margin-top: 22px;
+        text-align: center;
+        color: var(--muted, #718075);
+        font-size: 0.94rem;
+        line-height: 1.7;
+      }
+
+      /* =================================================
+       THEME TOGGLE
+    ================================================= */
+
+      .theme-toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 9px 15px;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.1);
+        color: #fff;
+        font: inherit;
+        font-size: 0.88rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+
+      .theme-toggle:hover {
+        background: rgba(255, 255, 255, 0.2);
+        transform: translateY(-1px);
+      }
+
+      .theme-toggle:focus-visible {
+        outline: 3px solid #b8e34f;
+        outline-offset: 3px;
+      }
+
+      /* =================================================
+       ACCESSIBILITY AND DARK MODE
+    ================================================= */
+
+      html {
+        color-scheme: light;
+        scroll-behavior: smooth;
+        scroll-padding-top: 90px;
+      }
+
+      html[data-theme="dark"] {
+        color-scheme: dark;
+        --canvas: #101d17;
+        --white: #1b2b21;
+        --ink: #f1f6f0;
+        --text: #d0dcd2;
+        --muted: #a2b3a6;
+        --line: #34483a;
+        --sage: #263c2d;
+        --sage-pale: #1c3023;
+        --forest: #b8e34f;
+        --forest-deep: #eaf5e8;
+        --forest-soft: #a6d96b;
+      }
+
+      html[data-theme="dark"] body {
+        background: #101d17;
+        color: #d0dcd2;
+      }
+
+      html[data-theme="dark"] .intro-strip,
+      html[data-theme="dark"] .how-section,
+      html[data-theme="dark"] .tool-section,
+      html[data-theme="dark"] .showcase-section {
+        background: #101d17;
+        color: #d0dcd2;
+      }
+
+      html[data-theme="dark"] .main-card,
+      html[data-theme="dark"] .step-card,
+      html[data-theme="dark"] .mode-card,
+      html[data-theme="dark"] .metric-card,
+      html[data-theme="dark"] .diagnostic-box,
+      html[data-theme="dark"] .best-material-box {
+        background: #1b2b21;
+        color: #f1f6f0;
+        border-color: #34483a;
+      }
+
+      html[data-theme="dark"] h1,
+      html[data-theme="dark"] h2,
+      html[data-theme="dark"] h3,
+      html[data-theme="dark"] h4,
+      html[data-theme="dark"] h5,
+      html[data-theme="dark"] h6,
+      html[data-theme="dark"] .form-label,
+      html[data-theme="dark"] .subsection-title {
+        color: #f1f6f0;
+      }
+
+      html[data-theme="dark"] p,
+      html[data-theme="dark"] .text-muted,
+      html[data-theme="dark"] .intro-text,
+      html[data-theme="dark"] .form-hint {
+        color: #afc0b2 !important;
+      }
+
+      html[data-theme="dark"] .form-control,
+      html[data-theme="dark"] .form-select {
+        background: #142219;
+        color: #f1f6f0;
+        border-color: #405746;
+      }
+
+      html[data-theme="dark"] .form-control::placeholder {
+        color: #91a394;
+      }
+
+      html[data-theme="dark"] .form-select option {
+        background: #142219;
+        color: #f1f6f0;
+      }
+
+      html[data-theme="dark"] .table {
+        --bs-table-bg: #1b2b21;
+        --bs-table-color: #d0dcd2;
+        --bs-table-border-color: #34483a;
+        --bs-table-hover-bg: #263c2d;
+        --bs-table-hover-color: #f1f6f0;
+      }
+
+      html[data-theme="dark"] .empty-state {
+        background: #1b2b21;
+        border-color: #34483a;
+        color: #d0dcd2;
+      }
+
+      html[data-theme="dark"] .eco-footer {
+        background: #0b1510;
+      }
+
+      html[data-theme="dark"] .closing-section {
+        background: #17291d;
+      }
+
+      html[data-theme="dark"] .form-divider {
+        border-color: #34483a;
+      }
+
+      html[data-theme="dark"] .mode-card.active {
+        border-color: #b8e34f;
+        background: #263c2d;
+      }
+
+      html[data-theme="dark"] .mode-indicator {
+        color: #b8e34f;
+      }
+
+      html[data-theme="dark"] .showcase-frame {
+        border-color: #34483a;
+        background: #1b2b21;
+      }
+
+      @media (max-width: 991.98px) {
+        .theme-toggle {
+          margin-left: 0;
+          width: fit-content;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .showcase-section {
+          padding: 35px 0 45px;
+        }
+
+        .showcase-frame {
+          border-radius: 15px;
+        }
+
+        .showcase-caption {
+          font-size: 0.86rem;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          scroll-behavior: auto !important;
+          transition-duration: 0.01ms !important;
+          animation-duration: 0.01ms !important;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- =================================================
+       NAVIGATION
+  ================================================== -->
+
+    <nav class="navbar navbar-expand-lg navbar-dark eco-navbar sticky-top">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="/">
+          <span class="brand-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" role="img" focusable="false">
+              <path
+                d="M8 18.5 24 10l16 8.5v17L24 44 8 35.5z"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.8"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M8.8 18.8 24 27l15.2-8.2M24 27v16"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M24 7.5c1-4.2 5.7-6 10.2-4.8-.3 5.2-3.4 9-8.7 9.5M24 12c-2.1-4.8-6.3-6.1-10.2-5.2.5 5.1 3.8 8.4 9.4 9"
+                fill="none"
+                stroke="#B8E34F"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </span>
+          EcoPack<span class="brand-highlight">AI</span>
+        </a>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#mainNavbar"
+          aria-controls="mainNavbar"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainNavbar">
+          <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3">
+            <li class="nav-item">
+              <a class="nav-link active" href="/">Home</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#how-it-works">How It Works</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#recommendation-tool">
+                Get Recommendations
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link dashboard-link" href="/dashboard/">
+                BI Dashboard ↗
+              </a>
+            </li>
+          </ul>
+
+          <button
+            type="button"
+            id="themeToggle"
+            class="theme-toggle ms-lg-3 mt-3 mt-lg-0"
+            aria-label="Switch to dark mode"
+            title="Switch theme"
+          >
+            <span id="themeIcon" aria-hidden="true">🌙</span>
+            <span id="themeLabel">Dark Mode</span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <!-- =================================================
+         HERO
+    ================================================== -->
+
+      <section class="hero-section">
+        <div class="container">
+          <div class="hero-content">
+            <span class="hero-label">
+              🌍 INTELLIGENCE FOR A GREENER FUTURE
+            </span>
+
+            <h1>
+              Smarter Packaging.<br />
+              <span>A Better Planet.</span>
+            </h1>
+
+            <p>
+              Discover sustainable packaging materials with the power of AI.
+              Find the right balance between product protection, packaging cost
+              and environmental impact.
+            </p>
+
+            <div class="hero-actions">
+              <a href="#recommendation-tool" class="btn hero-primary">
+                Explore Recommendations <span>→</span>
+              </a>
+
+              <a href="/dashboard/" class="btn hero-secondary">
+                View BI Dashboard
+              </a>
+            </div>
+
+            <div class="hero-highlights">
+              <span>✓ AI-powered material selection</span>
+              <span>✓ Environmental insights</span>
+              <span>✓ Cost-aware recommendations</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =================================================
+         SELECTED ECO PACKAGING SHOWCASE IMAGE
+    ================================================== -->
+
+      <section class="showcase-section" aria-label="EcoPackAI showcase">
+        <div class="container">
+          <div class="showcase-frame">
+            <img
+              src="{{ url_for('static', filename='images/ecopackai-showcase.png') }}"
+              alt="EcoPackAI sustainable packaging showcase featuring recyclable kraft paper packaging"
+              width="1672"
+              height="941"
+              loading="eager"
+              fetchpriority="high"
+            />
+          </div>
+
+          <p class="showcase-caption">
+            Intelligent packaging choices. Thoughtful material selection. A more
+            sustainable approach.
+          </p>
+        </div>
+      </section>
+
+      <!-- =================================================
+         INTRODUCTION
+    ================================================== -->
+
+      <section class="intro-strip">
+        <div class="container">
+          <div class="row align-items-center g-3">
+            <div class="col-md-4">
+              <span class="eyebrow">THE ECO PACKAGING APPROACH</span>
+              <h2>Better choices start here.</h2>
+            </div>
+
+            <div class="col-md-8">
+              <p class="intro-text mb-0">
+                Every product has different packaging needs. EcoPackAI evaluates
+                product requirements and available material characteristics to
+                help identify suitable packaging alternatives.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =================================================
+         HOW IT WORKS
+    ================================================== -->
+
+      <section class="how-section" id="how-it-works">
+        <div class="container">
+          <div class="section-heading">
+            <span class="eyebrow">HOW IT WORKS</span>
+            <h2>Three steps to a smarter choice</h2>
+            <p>A simple journey from product details to packaging insights.</p>
+          </div>
+
+          <div class="row g-4">
+            <div class="col-md-4">
+              <article class="step-card">
+                <div class="step-top">
+                  <span class="step-number">01</span>
+                  <span class="step-icon">📦</span>
+                </div>
+                <h3>Describe Your Product</h3>
+                <p>
+                  Select a product from the database or enter your own product
+                  specifications.
+                </p>
+              </article>
+            </div>
+
+            <div class="col-md-4">
+              <article class="step-card">
+                <div class="step-top">
+                  <span class="step-number">02</span>
+                  <span class="step-icon">🤖</span>
+                </div>
+                <h3>Let AI Evaluate</h3>
+                <p>
+                  The recommendation engine evaluates material suitability,
+                  estimated cost and environmental characteristics.
+                </p>
+              </article>
+            </div>
+
+            <div class="col-md-4">
+              <article class="step-card">
+                <div class="step-top">
+                  <span class="step-number">03</span>
+                  <span class="step-icon">🌿</span>
+                </div>
+                <h3>Compare Materials</h3>
+                <p>
+                  Explore ranked material recommendations and compare their
+                  predicted performance.
+                </p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =================================================
+         RECOMMENDATION TOOL
+    ================================================== -->
+
+      <section class="tool-section" id="recommendation-tool">
+        <div class="container">
+          <div class="section-heading">
+            <span class="eyebrow">YOUR PACKAGING ASSISTANT</span>
+            <h2>Find your ideal packaging material</h2>
+            <p>Enter your product details to get AI-powered recommendations.</p>
+          </div>
+
+          <!-- PRODUCT INPUT -->
+
+          <section class="card main-card p-4 p-lg-5 mb-4">
+            <div class="form-section-heading">
+              <div>
+                <span class="section-tag">STEP 1</span>
+                <h3>Product Details</h3>
+                <p class="text-muted mb-0">
+                  Choose how you want to provide your product information.
+                </p>
+              </div>
+              <span class="form-heading-icon">📋</span>
+            </div>
+
+            <!-- MODE SELECTION -->
+
+            <div class="row g-3 mb-4 mt-2">
+              <div class="col-md-6">
+                <div
+                  class="mode-card active"
+                  id="existingModeCard"
+                  role="button"
+                  tabindex="0"
+                  aria-pressed="true"
+                  onclick="setMode('existing')"
+                  onkeydown="
+                    if (event.key === 'Enter' || event.key === ' ') {
+                      event.preventDefault();
+                      setMode('existing');
+                    }
+                  "
+                >
+                  <div class="mode-card-icon">🗂️</div>
+                  <h5>Existing Product</h5>
+                  <p class="text-muted mb-0">
+                    Select a product already available in the database.
+                  </p>
+                  <span class="mode-indicator">SELECT</span>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div
+                  class="mode-card"
+                  id="customModeCard"
+                  role="button"
+                  tabindex="0"
+                  aria-pressed="false"
+                  onclick="setMode('custom')"
+                  onkeydown="
+                    if (event.key === 'Enter' || event.key === ' ') {
+                      event.preventDefault();
+                      setMode('custom');
+                    }
+                  "
+                >
+                  <div class="mode-card-icon">✏️</div>
+                  <h5>Custom Product</h5>
+                  <p class="text-muted mb-0">
+                    Enter your own product specifications and requirements.
+                  </p>
+                  <span class="mode-indicator">SELECT</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-divider"></div>
+
+            <!-- EXISTING PRODUCT FORM -->
+
+            <div id="existingProductSection">
+              <div class="mb-3">
+                <label for="productSelect" class="form-label">
+                  Select Product
+                </label>
+
+                <select class="form-select" id="productSelect">
+                  <option value="">Loading products...</option>
+                </select>
+
+                <small class="form-hint">
+                  Choose a product from the available product database.
+                </small>
+              </div>
+            </div>
+
+            <!-- CUSTOM PRODUCT FORM -->
+
+            <div id="customProductSection" class="hidden">
+              <h5 class="subsection-title mb-3">
+                Custom Product Specifications
+              </h5>
+
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label for="industry" class="form-label">Industry</label>
+                  <select class="form-select" id="industry">
+                    <option value="">Loading industries...</option>
+                  </select>
+                </div>
+
+                <div class="col-md-6">
+                  <label for="productWeight" class="form-label">
+                    Product Weight (kg)
+                  </label>
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="productWeight"
+                    min="0.001"
+                    step="0.001"
+                    placeholder="Example: 2.5"
+                  />
+                </div>
+
+                <div class="col-md-6">
+                  <label for="fragility" class="form-label">
+                    Fragility Score (1–100)
+                  </label>
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="fragility"
+                    min="1"
+                    max="100"
+                    step="1"
+                    placeholder="Example: 75"
+                  />
+                </div>
+
+                <div class="col-md-6">
+                  <label for="moistureSensitive" class="form-label">
+                    Moisture Sensitive?
+                  </label>
+                  <select class="form-select" id="moistureSensitive">
+                    <option value="">Select option</option>
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                  </select>
+                </div>
+
+                <div class="col-md-6">
+                  <label for="requiredStrength" class="form-label">
+                    Required Strength Score (1–100)
+                  </label>
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="requiredStrength"
+                    min="1"
+                    max="100"
+                    step="1"
+                    placeholder="Example: 60"
+                  />
+                </div>
+
+                <div class="col-md-6">
+                  <label for="budget" class="form-label">
+                    Budget Per Pack (₹)
+                  </label>
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="budget"
+                    min="0.01"
+                    step="0.01"
+                    placeholder="Example: 20"
+                  />
+                </div>
+              </div>
+
+              <div class="form-note mt-3">
+                <span>ⓘ</span>
+                <p class="mb-0">
+                  Scores should be between 1 and 100. Budget is treated as a
+                  strict recommendation constraint.
+                </p>
+              </div>
+            </div>
+
+            <!-- COMMON SETTINGS -->
+
+            <div class="form-divider"></div>
+
+            <div class="row align-items-end g-3">
+              <div class="col-md-5">
+                <label for="topN" class="form-label">
+                  Number of Recommendations
+                </label>
+                <select class="form-select" id="topN">
+                  <option value="3">Top 3</option>
+                  <option value="5" selected>Top 5</option>
+                  <option value="10">Top 10</option>
+                </select>
+              </div>
+
+              <div class="col-md-7">
+                <button
+                  type="button"
+                  class="btn btn-success recommend-btn w-100"
+                  id="recommendButton"
+                  onclick="generateRecommendations()"
+                >
+                  <span>✦</span> Get AI Recommendations
+                </button>
+              </div>
+            </div>
+
+            <p
+              id="productMessage"
+              class="mt-3 mb-0"
+              role="status"
+              aria-live="polite"
+            ></p>
+          </section>
+
+          <!-- DIAGNOSTICS -->
+
+          <section
+            class="card main-card p-4 p-lg-5 mb-4 hidden"
+            id="diagnosticSection"
+          >
+            <div class="result-heading">
+              <div>
+                <span class="section-tag">ANALYSIS</span>
+                <h3>Recommendation Eligibility Analysis</h3>
+                <p class="text-muted mb-0">
+                  Material eligibility based on your product requirements.
+                </p>
+              </div>
+              <span class="result-icon">🔎</span>
+            </div>
+
+            <div class="row g-3 mt-3">
+              <div class="col-md-4">
+                <div class="metric-card text-center p-4">
+                  <span class="metric-icon">🧱</span>
+                  <h6>Total Materials</h6>
+                  <h3 id="diagnosticTotal">--</h3>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="metric-card text-center p-4">
+                  <span class="metric-icon">✓</span>
+                  <h6>Technical Pass</h6>
+                  <h3 id="diagnosticTechnical">--</h3>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="metric-card text-center p-4">
+                  <span class="metric-icon">🌿</span>
+                  <h6>Eligible Materials</h6>
+                  <h3 id="diagnosticEligible">--</h3>
+                </div>
+              </div>
+            </div>
+
+            <div class="diagnostic-box p-4 mt-4">
+              <h5>Analysis and Failure Reasons</h5>
+              <ul id="diagnosticReasons" class="mb-0"></ul>
+            </div>
+
+            <div id="warningContainer" class="mt-3"></div>
+          </section>
+
+          <!-- ENVIRONMENTAL PERFORMANCE -->
+
+          <section
+            class="card main-card p-4 p-lg-5 mb-4 hidden"
+            id="environmentalScoreSection"
+          >
+            <div class="result-heading">
+              <div>
+                <span class="section-tag">SUSTAINABILITY INSIGHTS</span>
+                <h3>Environmental Performance</h3>
+                <p class="text-muted mb-0">
+                  Sustainability analysis of the best environmentally ranked
+                  eligible packaging material.
+                </p>
+              </div>
+              <span class="result-icon">🌍</span>
+            </div>
+
+            <div class="row g-3 mt-3">
+              <div class="col-md-6 col-lg-3">
+                <div class="metric-card h-100 text-center p-4">
+                  <span class="metric-icon">🌱</span>
+                  <h6>Environmental Score</h6>
+                  <h2 id="environmentalScore">--</h2>
+                  <small class="text-muted">Out of 100</small>
+                </div>
+              </div>
+
+              <div class="col-md-6 col-lg-3">
+                <div class="metric-card h-100 text-center p-4">
+                  <span class="metric-icon">☁️</span>
+                  <h6>CO₂ Performance</h6>
+                  <h2 id="co2Score">--</h2>
+                  <small class="text-muted">Score out of 100</small>
+                </div>
+              </div>
+
+              <div class="col-md-6 col-lg-3">
+                <div class="metric-card h-100 text-center p-4">
+                  <span class="metric-icon">🍃</span>
+                  <h6>Biodegradability</h6>
+                  <h2 id="biodegradabilityScore">--</h2>
+                  <small class="text-muted">Score out of 100</small>
+                </div>
+              </div>
+
+              <div class="col-md-6 col-lg-3">
+                <div class="metric-card h-100 text-center p-4">
+                  <span class="metric-icon">♻️</span>
+                  <h6>Recyclability</h6>
+                  <h2 id="recyclabilityScore">--</h2>
+                  <small class="text-muted">Percentage</small>
+                </div>
+              </div>
+            </div>
+
+            <div class="best-material-box mt-4">
+              <span class="best-label">
+                BEST ENVIRONMENTAL RECOMMENDATION
+              </span>
+              <h5 id="bestEnvironmentalMaterial" class="mb-0 mt-2">
+                Waiting for analysis...
+              </h5>
+            </div>
+
+            <p id="environmentalMessage" class="mt-3 mb-0"></p>
+          </section>
+
+          <!-- RECOMMENDATION RESULTS -->
+
+          <section class="card main-card p-4 p-lg-5 mb-4">
+            <div class="result-heading">
+              <div>
+                <span class="section-tag">AI RESULTS</span>
+                <h3>AI Material Recommendations</h3>
+                <p class="text-muted mb-0">
+                  Explore the materials ranked for your product requirements.
+                </p>
+              </div>
+              <span class="result-icon">✨</span>
+            </div>
+
+            <div id="recommendationMessage" class="empty-state mt-4">
+              <span class="empty-state-icon">📦</span>
+              <h5>Your recommendations will appear here</h5>
+              <p class="text-muted mb-0">
+                Select a product and click Get AI Recommendations to begin.
+              </p>
+            </div>
+
+            <div
+              class="table-responsive hidden mt-4"
+              id="recommendationTableContainer"
+            >
+              <table class="table table-hover align-middle">
+                <thead>
+                  <tr>
+                    <th>Rank</th>
+                    <th>Material</th>
+                    <th>Category</th>
+                    <th>Predicted Cost (₹)</th>
+                    <th>Predicted CO₂ (kg)</th>
+                    <th>Final Score</th>
+                  </tr>
+                </thead>
+                <tbody id="recommendationTableBody"></tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- MATERIAL COMPARISON -->
+
+          <section
+            class="card main-card p-4 p-lg-5 mb-4 hidden"
+            id="materialComparisonSection"
+          >
+            <div class="result-heading">
+              <div>
+                <span class="section-tag">SIDE-BY-SIDE ANALYSIS</span>
+                <h3>Material Comparison</h3>
+                <p class="text-muted mb-0">
+                  Compare two AI-recommended packaging materials.
+                </p>
+              </div>
+              <span class="result-icon">⚖️</span>
+            </div>
+
+            <div class="row g-3 mt-3">
+              <div class="col-md-6">
+                <label for="compareMaterial1" class="form-label">
+                  First Material
+                </label>
+                <select class="form-select" id="compareMaterial1">
+                  <option value="">Select first material</option>
+                </select>
+              </div>
+
+              <div class="col-md-6">
+                <label for="compareMaterial2" class="form-label">
+                  Second Material
+                </label>
+                <select class="form-select" id="compareMaterial2">
+                  <option value="">Select second material</option>
+                </select>
+              </div>
+            </div>
+
+            <button
+              type="button"
+              class="btn btn-success compare-btn mt-4"
+              id="compareButton"
+            >
+              Compare Materials
+            </button>
+
+            <p id="comparisonMessage" class="mt-3 mb-0"></p>
+
+            <div class="table-responsive mt-3 hidden" id="comparisonResult">
+              <table class="table table-hover align-middle">
+                <thead>
+                  <tr>
+                    <th>Metric</th>
+                    <th id="comparisonHeading1">Material 1</th>
+                    <th id="comparisonHeading2">Material 2</th>
+                  </tr>
+                </thead>
+                <tbody id="comparisonTableBody"></tbody>
+              </table>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <!-- =================================================
+         CLOSING SECTION
+    ================================================== -->
+
+      <section class="closing-section">
+        <div class="container text-center">
+          <span class="closing-icon">🌎</span>
+
+          <h2>Small packaging choices. Meaningful possibilities.</h2>
+
+          <p>
+            Use data-driven insights to explore packaging alternatives that
+            balance product needs and sustainability.
+          </p>
+
+          <a href="#recommendation-tool" class="btn closing-btn">
+            Start Exploring →
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <!-- =================================================
+       FOOTER
+  ================================================== -->
+
+    <footer class="eco-footer">
+      <div class="container">
+        <div class="footer-content">
+          <div>
+            <a class="footer-brand" href="/">
+              <span class="footer-brand-mark" aria-hidden="true">✳</span>
+              EcoPackAI
+            </a>
+            <p class="mb-0">AI-powered sustainable packaging intelligence.</p>
+          </div>
+
+          <div class="footer-links">
+            <a href="/">Home</a>
+            <a href="#how-it-works">How It Works</a>
+            <a href="/dashboard/">BI Dashboard</a>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <span>
+            EcoPackAI | Sustainable Packaging Recommendation Platform
+          </span>
+          <span>Designed for a greener future 🌿</span>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- =================================================
+       ECOPACKAI FRONTEND JAVASCRIPT
+       Existing API integrations and workflows preserved
+  ================================================== -->
+
+    <script>
+      // ==================================================
+      // GLOBAL VARIABLES
+      // ==================================================
+
+      let currentMode = "existing";
+      let currentRecommendations = [];
+      let availableProducts = [];
+
+      // ==================================================
+      // LIGHT / DARK THEME
+      // ==================================================
+
+      function applyTheme(theme) {
+        const selectedTheme = theme === "dark" ? "dark" : "light";
+
+        document.documentElement.setAttribute("data-theme", selectedTheme);
+
+        const icon = document.getElementById("themeIcon");
+        const label = document.getElementById("themeLabel");
+        const button = document.getElementById("themeToggle");
+
+        if (icon && label && button) {
+          icon.textContent = selectedTheme === "dark" ? "☀️" : "🌙";
+          label.textContent =
+            selectedTheme === "dark" ? "Light Mode" : "Dark Mode";
+
+          button.setAttribute(
+            "aria-label",
+            selectedTheme === "dark"
+              ? "Switch to light mode"
+              : "Switch to dark mode",
+          );
+        }
+
+        try {
+          localStorage.setItem("ecopackai-theme", selectedTheme);
+        } catch (error) {
+          // Continue if browser storage is unavailable.
+        }
+      }
+
+      function initializeTheme() {
+        let savedTheme = "light";
+
+        try {
+          savedTheme = localStorage.getItem("ecopackai-theme") || "light";
+        } catch (error) {
+          // Use light mode if browser storage is unavailable.
+        }
+
+        applyTheme(savedTheme);
+
+        const toggle = document.getElementById("themeToggle");
+
+        if (toggle) {
+          toggle.addEventListener("click", () => {
+            const currentTheme =
+              document.documentElement.getAttribute("data-theme") || "light";
+
+            applyTheme(currentTheme === "light" ? "dark" : "light");
+          });
+        }
+      }
+
+      initializeTheme();
+
+      // ==================================================
+      // HELPER FUNCTIONS
+      // ==================================================
+
+      function formatNumber(value, decimals = 2) {
+        const number = Number(value);
+
+        return value !== null && value !== undefined && Number.isFinite(number)
+          ? number.toFixed(decimals)
+          : "N/A";
+      }
+
+      function showMessage(elementId, message, type = "muted") {
+        const element = document.getElementById(elementId);
+        element.textContent = message;
+
+        if (elementId === "recommendationMessage") {
+          element.className = `mb-3 text-${type}`;
+        } else {
+          element.className = `mt-3 mb-0 text-${type}`;
+        }
+      }
+
+      function resetResults() {
+        currentRecommendations = [];
+
+        document
+          .getElementById("environmentalScoreSection")
+          .classList.add("hidden");
+
+        document.getElementById("diagnosticSection").classList.add("hidden");
+
+        document
+          .getElementById("recommendationTableContainer")
+          .classList.add("hidden");
+
+        document
+          .getElementById("materialComparisonSection")
+          .classList.add("hidden");
+
+        document.getElementById("recommendationTableBody").innerHTML = "";
+
+        const recommendationMessage = document.getElementById(
+          "recommendationMessage",
+        );
+
+        recommendationMessage.textContent = "Waiting for product details.";
+        recommendationMessage.className = "empty-state mt-4";
+      }
+
+      // ==================================================
+      // EXISTING / CUSTOM MODE SWITCHING
+      // ==================================================
+
+      function setMode(mode) {
+        currentMode = mode;
+
+        const existingSection = document.getElementById(
+          "existingProductSection",
+        );
+
+        const customSection = document.getElementById("customProductSection");
+
+        const existingCard = document.getElementById("existingModeCard");
+
+        const customCard = document.getElementById("customModeCard");
+
+        if (mode === "existing") {
+          existingSection.classList.remove("hidden");
+          customSection.classList.add("hidden");
+
+          existingCard.classList.add("active");
+          customCard.classList.remove("active");
+
+          existingCard.setAttribute("aria-pressed", "true");
+          customCard.setAttribute("aria-pressed", "false");
+        } else {
+          existingSection.classList.add("hidden");
+          customSection.classList.remove("hidden");
+
+          existingCard.classList.remove("active");
+          customCard.classList.add("active");
+
+          existingCard.setAttribute("aria-pressed", "false");
+          customCard.setAttribute("aria-pressed", "true");
+        }
+
+        resetResults();
+
+        showMessage(
+          "productMessage",
+          mode === "existing"
+            ? "Existing product mode selected."
+            : "Custom product mode selected.",
+          "success",
+        );
+      }
+
+      // ==================================================
+      // LOAD PRODUCTS AND INDUSTRIES
+      // ==================================================
+
+      async function loadProducts() {
+        const productSelect = document.getElementById("productSelect");
+        const industrySelect = document.getElementById("industry");
+
+        try {
+          const response = await fetch("/api/products");
+          const data = await response.json();
+
+          if (!response.ok || data.status !== "success") {
+            throw new Error(data.message || "Unable to load products.");
+          }
+
+          availableProducts = data.products;
+
+          productSelect.innerHTML =
+            '<option value="">-- Select a product --</option>';
+
+          const industries = new Set();
+
+          data.products.forEach((product) => {
+            const option = document.createElement("option");
+
+            option.value = product.product_id;
+            option.textContent = `${product.product_id} - ${product.product_type} (${product.industry})`;
+
+            productSelect.appendChild(option);
+
+            if (product.industry) {
+              industries.add(product.industry);
+            }
+          });
+
+          industrySelect.innerHTML =
+            '<option value="">-- Select industry --</option>';
+
+          [...industries].sort().forEach((industry) => {
+            const option = document.createElement("option");
+
+            option.value = industry;
+            option.textContent = industry;
+
+            industrySelect.appendChild(option);
+          });
+
+          showMessage(
+            "productMessage",
+            `${data.total_products} products loaded successfully.`,
+            "success",
+          );
+        } catch (error) {
+          productSelect.innerHTML =
+            '<option value="">Products could not be loaded</option>';
+
+          industrySelect.innerHTML =
+            '<option value="">Industries could not be loaded</option>';
+
+          showMessage("productMessage", error.message, "danger");
+        }
+      }
+
+      // ==================================================
+      // VALIDATE CUSTOM PRODUCT INPUT
+      // ==================================================
+
+      function getCustomProductInput() {
+        const industry = document.getElementById("industry").value;
+        const productWeight = document.getElementById("productWeight").value;
+        const fragility = document.getElementById("fragility").value;
+
+        const moistureSensitive =
+          document.getElementById("moistureSensitive").value;
+
+        const requiredStrength =
+          document.getElementById("requiredStrength").value;
+
+        const budget = document.getElementById("budget").value;
+
+        if (
+          !industry ||
+          productWeight === "" ||
+          fragility === "" ||
+          moistureSensitive === "" ||
+          requiredStrength === "" ||
+          budget === ""
+        ) {
+          throw new Error("Please complete all custom product fields.");
+        }
+
+        const weight = Number(productWeight);
+        const fragilityValue = Number(fragility);
+        const strengthValue = Number(requiredStrength);
+        const budgetValue = Number(budget);
+
+        if (!Number.isFinite(weight) || weight <= 0) {
+          throw new Error("Product weight must be greater than zero.");
+        }
+
+        if (
+          !Number.isInteger(fragilityValue) ||
+          fragilityValue < 1 ||
+          fragilityValue > 100
+        ) {
+          throw new Error(
+            "Fragility score must be an integer between 1 and 100.",
+          );
+        }
+
+        if (
+          !Number.isInteger(strengthValue) ||
+          strengthValue < 1 ||
+          strengthValue > 100
+        ) {
+          throw new Error(
+            "Required strength must be an integer between 1 and 100.",
+          );
+        }
+
+        if (!Number.isFinite(budgetValue) || budgetValue <= 0) {
+          throw new Error("Budget must be greater than zero.");
+        }
+
+        return {
+          industry: industry,
+          product_weight_kg: weight,
+          fragility_score: fragilityValue,
+          moisture_sensitive: Number(moistureSensitive),
+          required_strength_score: strengthValue,
+          budget_per_pack_inr: budgetValue,
+        };
+      }
+
+      // ==================================================
+      // DISPLAY DIAGNOSTICS
+      // ==================================================
+
+      function displayDiagnostics(diagnostics, warnings = []) {
+        const section = document.getElementById("diagnosticSection");
+
+        if (!diagnostics) {
+          section.classList.add("hidden");
+          return;
+        }
+
+        document.getElementById("diagnosticTotal").textContent =
+          diagnostics.total_materials_evaluated ?? 0;
+
+        document.getElementById("diagnosticTechnical").textContent =
+          diagnostics.technical_pass ?? 0;
+
+        document.getElementById("diagnosticEligible").textContent =
+          diagnostics.eligible_materials ?? 0;
+
+        const reasonsList = document.getElementById("diagnosticReasons");
+
+        reasonsList.innerHTML = "";
+
+        (diagnostics.failure_reasons || []).forEach((reason) => {
+          const item = document.createElement("li");
+          item.textContent = reason;
+          reasonsList.appendChild(item);
+        });
+
+        const warningContainer = document.getElementById("warningContainer");
+
+        warningContainer.innerHTML = "";
+
+        if (warnings && warnings.length > 0) {
+          const heading = document.createElement("h6");
+          heading.textContent = "Input Warnings";
+
+          warningContainer.appendChild(heading);
+
+          const list = document.createElement("ul");
+
+          warnings.forEach((warning) => {
+            const item = document.createElement("li");
+            item.textContent = warning;
+            list.appendChild(item);
+          });
+
+          warningContainer.appendChild(list);
+        }
+
+        section.classList.remove("hidden");
+      }
+
+      // ==================================================
+      // DISPLAY ENVIRONMENTAL SCORE
+      // ==================================================
+
+      function displayEnvironmentalScore(score) {
+        const section = document.getElementById("environmentalScoreSection");
+
+        if (!score) {
+          section.classList.add("hidden");
+          return;
+        }
+
+        document.getElementById("environmentalScore").textContent =
+          formatNumber(score.environmental_score);
+
+        document.getElementById("co2Score").textContent = formatNumber(
+          score.co2_score,
+        );
+
+        document.getElementById("biodegradabilityScore").textContent =
+          formatNumber(score.biodegradability_score);
+
+        document.getElementById("recyclabilityScore").textContent =
+          formatNumber(score.recyclability_percent) + "%";
+
+        document.getElementById("bestEnvironmentalMaterial").textContent =
+          score.best_material;
+
+        showMessage(
+          "environmentalMessage",
+          score.score_method || "Environmental analysis completed.",
+          "success",
+        );
+
+        section.classList.remove("hidden");
+      }
+
+      // ==================================================
+      // EXISTING PRODUCT ENVIRONMENTAL API
+      // ==================================================
+
+      async function loadEnvironmentalScore(productId) {
+        const response = await fetch("/api/environmental-score", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            product_id: productId,
+          }),
+        });
+
+        const data = await response.json();
+
+        if (!response.ok || data.status !== "success") {
+          throw new Error(
+            data.message || "Unable to calculate environmental score.",
+          );
+        }
+
+        displayEnvironmentalScore(data);
+      }
+
+      // ==================================================
+      // DISPLAY RECOMMENDATION TABLE
+      // ==================================================
+
+      function displayRecommendations(recommendations) {
+        currentRecommendations = recommendations || [];
+
+        const tableBody = document.getElementById("recommendationTableBody");
+
+        const tableContainer = document.getElementById(
+          "recommendationTableContainer",
+        );
+
+        tableBody.innerHTML = "";
+
+        currentRecommendations.forEach((item) => {
+          const row = document.createElement("tr");
+
+          const values = [
+            item.rank ?? "N/A",
+            item.material_name ?? "N/A",
+            item.material_category ?? "N/A",
+            formatNumber(item.predicted_cost_inr, 2),
+            formatNumber(item.predicted_co2_kg, 4),
+            formatNumber(item.final_score, 2),
+          ];
+
+          values.forEach((value) => {
+            const cell = document.createElement("td");
+            cell.textContent = value;
+            row.appendChild(cell);
+          });
+
+          tableBody.appendChild(row);
+        });
+
+        tableContainer.classList.remove("hidden");
+
+        const recommendationMessage = document.getElementById(
+          "recommendationMessage",
+        );
+
+        recommendationMessage.textContent = `${currentRecommendations.length} recommendations generated successfully.`;
+
+        recommendationMessage.className = "mb-3 text-success";
+
+        setupMaterialComparison(currentRecommendations);
+      }
+
+      // ==================================================
+      // MATERIAL COMPARISON
+      // ==================================================
+
+      function setupMaterialComparison(recommendations) {
+        const section = document.getElementById("materialComparisonSection");
+
+        const select1 = document.getElementById("compareMaterial1");
+        const select2 = document.getElementById("compareMaterial2");
+
+        select1.innerHTML = '<option value="">Select first material</option>';
+
+        select2.innerHTML = '<option value="">Select second material</option>';
+
+        recommendations.forEach((material, index) => {
+          const option1 = document.createElement("option");
+
+          option1.value = index;
+          option1.textContent = material.material_name;
+
+          select1.appendChild(option1);
+
+          const option2 = document.createElement("option");
+
+          option2.value = index;
+          option2.textContent = material.material_name;
+
+          select2.appendChild(option2);
+        });
+
+        document.getElementById("comparisonResult").classList.add("hidden");
+        document.getElementById("comparisonMessage").textContent = "";
+
+        section.classList.toggle("hidden", recommendations.length < 2);
+      }
+
+      function compareMaterials() {
+        const index1 = document.getElementById("compareMaterial1").value;
+        const index2 = document.getElementById("compareMaterial2").value;
+
+        const result = document.getElementById("comparisonResult");
+        const tableBody = document.getElementById("comparisonTableBody");
+
+        if (index1 === "" || index2 === "") {
+          showMessage(
+            "comparisonMessage",
+            "Please select both materials.",
+            "danger",
+          );
+
+          result.classList.add("hidden");
+          return;
+        }
+
+        if (index1 === index2) {
+          showMessage(
+            "comparisonMessage",
+            "Please select two different materials.",
+            "danger",
+          );
+
+          result.classList.add("hidden");
+          return;
+        }
+
+        const material1 = currentRecommendations[Number(index1)];
+        const material2 = currentRecommendations[Number(index2)];
+
+        if (!material1 || !material2) {
+          showMessage(
+            "comparisonMessage",
+            "Unable to find selected materials.",
+            "danger",
+          );
+
+          result.classList.add("hidden");
+          return;
+        }
+
+        document.getElementById("comparisonHeading1").textContent =
+          material1.material_name;
+
+        document.getElementById("comparisonHeading2").textContent =
+          material2.material_name;
+
+        const metrics = [
+          {
+            name: "Material Category",
+            value1: material1.material_category,
+            value2: material2.material_category,
+          },
+          {
+            name: "Predicted Cost (₹)",
+            value1: formatNumber(material1.predicted_cost_inr, 2),
+            value2: formatNumber(material2.predicted_cost_inr, 2),
+          },
+          {
+            name: "Predicted CO₂ (kg)",
+            value1: formatNumber(material1.predicted_co2_kg, 4),
+            value2: formatNumber(material2.predicted_co2_kg, 4),
+          },
+          {
+            name: "Biodegradability",
+            value1: material1.biodegradability_score,
+            value2: material2.biodegradability_score,
+          },
+          {
+            name: "Recyclability (%)",
+            value1: material1.recyclability_percent,
+            value2: material2.recyclability_percent,
+          },
+          {
+            name: "Final Recommendation Score",
+            value1: formatNumber(material1.final_score, 2),
+            value2: formatNumber(material2.final_score, 2),
+          },
+        ];
+
+        tableBody.innerHTML = "";
+
+        metrics.forEach((metric) => {
+          const row = document.createElement("tr");
+
+          [metric.name, metric.value1 ?? "N/A", metric.value2 ?? "N/A"].forEach(
+            (value) => {
+              const cell = document.createElement("td");
+              cell.textContent = value;
+              row.appendChild(cell);
+            },
+          );
+
+          tableBody.appendChild(row);
+        });
+
+        result.classList.remove("hidden");
+
+        showMessage(
+          "comparisonMessage",
+          "Material comparison completed successfully.",
+          "success",
+        );
+      }
+
+      document
+        .getElementById("compareButton")
+        .addEventListener("click", compareMaterials);
+
+      // ==================================================
+      // GENERATE RECOMMENDATIONS
+      // ==================================================
+
+      async function generateRecommendations() {
+        const button = document.getElementById("recommendButton");
+        const topN = Number(document.getElementById("topN").value);
+
+        resetResults();
+
+        button.disabled = true;
+        button.textContent = "Generating...";
+
+        showMessage(
+          "productMessage",
+          "Generating AI recommendations...",
+          "primary",
+        );
+
+        try {
+          let endpoint;
+          let payload;
+
+          // EXISTING PRODUCT MODE
+
+          if (currentMode === "existing") {
+            const productId = document.getElementById("productSelect").value;
+
+            if (!productId) {
+              throw new Error("Please select an existing product.");
+            }
+
+            endpoint = "/api/recommendations";
+
+            payload = {
+              product_id: productId,
+              top_n: topN,
+            };
+          }
+
+          // CUSTOM PRODUCT MODE
+          else {
+            const customProduct = getCustomProductInput();
+
+            endpoint = "/api/custom-recommendations";
+
+            payload = {
+              ...customProduct,
+              top_n: topN,
+            };
+          }
+
+          // CALL BACKEND API
+
+          const response = await fetch(endpoint, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(payload),
+          });
+
+          const data = await response.json();
+
+          if (!response.ok) {
+            throw new Error(data.message || "Recommendation request failed.");
+          }
+
+          // CUSTOM PRODUCT DIAGNOSTICS
+
+          if (currentMode === "custom") {
+            displayDiagnostics(data.diagnostics, data.warnings);
+          }
+
+          // NO RECOMMENDATIONS
+
+          if (
+            data.status === "no_recommendations" ||
+            !data.recommendations ||
+            data.recommendations.length === 0
+          ) {
+            document.getElementById("recommendationMessage").textContent =
+              data.message || "No suitable packaging materials found.";
+
+            document.getElementById("recommendationMessage").className =
+              "mb-3 text-warning";
+
+            if (currentMode === "custom" && data.diagnostics) {
+              showMessage(
+                "productMessage",
+                "Analysis completed, but no materials satisfy all requirements.",
+                "warning",
+              );
+            } else {
+              showMessage(
+                "productMessage",
+                "No suitable recommendations available.",
+                "warning",
+              );
+            }
+
+            return;
+          }
+
+          // DISPLAY RECOMMENDATIONS
+
+          displayRecommendations(data.recommendations);
+
+          // ENVIRONMENTAL SCORE
+
+          if (currentMode === "custom") {
+            displayEnvironmentalScore(data.environmental_score);
+          } else {
+            await loadEnvironmentalScore(payload.product_id);
+          }
+
+          showMessage(
+            "productMessage",
+            "AI recommendations generated successfully!",
+            "success",
+          );
+        } catch (error) {
+          showMessage("productMessage", error.message, "danger");
+
+          document.getElementById("recommendationMessage").textContent =
+            "Unable to generate recommendations.";
+
+          document.getElementById("recommendationMessage").className =
+            "mb-3 text-danger";
+        } finally {
+          button.disabled = false;
+          button.innerHTML = "<span>✦</span> Get AI Recommendations";
+        }
+      }
+
+      // ==================================================
+      // INITIALIZE FRONTEND
+      // ==================================================
+
+      document.addEventListener("DOMContentLoaded", loadProducts);
+    </script>
+  </body>
+</html>

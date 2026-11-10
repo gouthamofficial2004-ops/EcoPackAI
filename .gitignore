@@ -1,20 +1,45 @@
-# Python virtual environment
+
+# Python virtual environments
 .venv/
 venv/
 
 # Python cache
 __pycache__/
-*.pyc
+*.py[cod]
 
 # Environment variables and secrets
 .env
+.env.*
+!.env.example
+
+# Backup folders
+dashboard_backup/
+**/*_backup.py
 
 # Jupyter checkpoints
 .ipynb_checkpoints/
 
 # Temporary files
 *.log
+*.tmp
 
 # Operating system files
 .DS_Store
 Thumbs.db
+# Training datasets not required at application runtime
+data/processed/training_data.csv
+data/processed/training_data_cleaned.csv
+data/processed/training_data_feature_engineered.csv
+
+# Model training and testing artifacts
+models/X_train.pkl
+models/X_test.pkl
+models/y_co2_train.pkl
+models/y_co2_test.pkl
+models/y_cost_train.pkl
+models/y_cost_test.pkl
+# Original oversized cost model - exclude from GitHub
+models/cost_random_forest.pkl
+# Python compiled cache files
+**/__pycache__/
+*.pyc

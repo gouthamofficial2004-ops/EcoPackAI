@@ -1,0 +1,301 @@
+product_id,industry,product_type,product_weight_kg,fragility_score,moisture_sensitive,required_strength_score,budget_per_pack_inr
+P0001,Food,Snack box,2.12,39,1,46,12.44
+P0002,Electronics,Accessory box,3.26,41,1,40,21.6
+P0003,Cosmetics,Makeup box,7.66,15,1,35,6.48
+P0004,Clothing,Apparel mailer,0.75,76,0,66,19.11
+P0005,Healthcare,Medical supply pack,2.09,7,0,63,5.16
+P0006,E-commerce,Parcel box,0.9,61,1,30,8.09
+P0007,Home Goods,Glassware box,3.3,97,1,50,4.13
+P0008,Books,Paperback wrap,0.26,23,0,37,3.61
+P0009,Toys,Toy accessory pack,1.64,93,0,72,10.33
+P0010,Personal Care,Soap box,0.21,29,1,52,6.39
+P0011,Food,Takeaway container,3.17,81,0,55,4.31
+P0012,Electronics,Device protective pack,6.52,70,0,51,7.12
+P0013,Cosmetics,Cream box,6.5,59,1,67,14.51
+P0014,Clothing,Shoe box,2.98,83,0,42,21.69
+P0015,Healthcare,Personal care pack,7.71,35,0,58,1.33
+P0016,E-commerce,Shipping box,5.25,70,0,42,1.05
+P0017,Home Goods,Kitchen item pack,1.78,78,1,37,8.57
+P0018,Books,Stationery box,1.19,27,1,53,15.41
+P0019,Toys,Toy box,6.54,43,0,74,1.67
+P0020,Personal Care,Shampoo carton,5.3,37,0,24,5.22
+P0021,Food,Dry food pouch,4.03,27,1,70,1.76
+P0022,Electronics,Phone box,6.0,38,0,69,21.58
+P0023,Cosmetics,Bottle carton,7.55,39,1,53,9.19
+P0024,Clothing,Accessory pouch,2.7,39,0,38,5.97
+P0025,Healthcare,Medicine carton,7.52,1,1,81,3.39
+P0026,E-commerce,Mailer pack,6.27,78,1,49,8.03
+P0027,Home Goods,Decor item box,1.66,93,0,32,9.69
+P0028,Books,Book mailer,5.1,12,0,38,7.47
+P0029,Toys,Game pack,6.92,19,0,27,8.69
+P0030,Personal Care,Toiletry pack,3.63,10,0,68,5.73
+P0031,Food,Snack box,2.04,12,0,60,11.19
+P0032,Electronics,Accessory box,5.79,54,0,58,8.93
+P0033,Cosmetics,Makeup box,7.75,46,1,41,17.33
+P0034,Clothing,Apparel mailer,3.91,35,0,78,21.61
+P0035,Healthcare,Medical supply pack,5.59,73,1,66,11.9
+P0036,E-commerce,Parcel box,6.28,6,0,72,15.57
+P0037,Home Goods,Glassware box,5.05,52,1,44,7.65
+P0038,Books,Paperback wrap,1.55,10,1,78,1.91
+P0039,Toys,Toy accessory pack,4.75,86,0,41,13.9
+P0040,Personal Care,Soap box,1.64,71,1,38,9.15
+P0041,Food,Takeaway container,5.63,69,1,57,19.53
+P0042,Electronics,Device protective pack,4.62,85,0,51,13.49
+P0043,Cosmetics,Cream box,3.88,58,0,60,12.55
+P0044,Clothing,Shoe box,0.37,44,1,29,11.23
+P0045,Healthcare,Personal care pack,0.62,71,1,59,19.04
+P0046,E-commerce,Shipping box,4.33,68,1,66,19.25
+P0047,Home Goods,Kitchen item pack,1.29,58,1,22,19.07
+P0048,Books,Stationery box,6.29,39,0,76,21.62
+P0049,Toys,Toy box,6.49,79,1,87,4.37
+P0050,Personal Care,Shampoo carton,5.8,12,1,44,19.15
+P0051,Food,Dry food pouch,5.69,26,1,66,15.85
+P0052,Electronics,Phone box,7.47,36,0,48,12.49
+P0053,Cosmetics,Bottle carton,4.56,94,1,47,8.45
+P0054,Clothing,Accessory pouch,5.21,19,0,37,3.0
+P0055,Healthcare,Medicine carton,3.36,89,1,68,4.59
+P0056,E-commerce,Mailer pack,6.77,73,1,57,13.61
+P0057,Home Goods,Decor item box,4.91,42,0,45,13.88
+P0058,Books,Book mailer,1.95,23,1,54,11.32
+P0059,Toys,Game pack,6.25,48,0,47,2.93
+P0060,Personal Care,Toiletry pack,5.37,17,0,70,9.1
+P0061,Food,Snack box,7.62,40,0,44,20.31
+P0062,Electronics,Accessory box,1.06,88,1,93,9.08
+P0063,Cosmetics,Makeup box,3.03,22,1,29,12.3
+P0064,Clothing,Apparel mailer,1.5,14,0,42,4.38
+P0065,Healthcare,Medical supply pack,6.72,62,1,20,7.06
+P0066,E-commerce,Parcel box,1.97,13,0,71,10.33
+P0067,Home Goods,Glassware box,5.03,72,0,66,14.72
+P0068,Books,Paperback wrap,7.1,89,1,51,13.6
+P0069,Toys,Toy accessory pack,3.58,57,0,23,19.18
+P0070,Personal Care,Soap box,3.55,14,0,34,14.05
+P0071,Food,Takeaway container,4.03,83,0,76,10.42
+P0072,Electronics,Device protective pack,3.82,48,1,55,6.72
+P0073,Cosmetics,Cream box,7.76,16,1,63,16.14
+P0074,Clothing,Shoe box,4.85,47,0,59,13.91
+P0075,Healthcare,Personal care pack,1.27,40,0,84,14.4
+P0076,E-commerce,Shipping box,0.86,81,1,49,15.95
+P0077,Home Goods,Kitchen item pack,6.66,14,0,48,6.48
+P0078,Books,Stationery box,1.97,6,1,42,7.52
+P0079,Toys,Toy box,2.86,7,1,83,21.91
+P0080,Personal Care,Shampoo carton,6.53,47,0,39,8.22
+P0081,Food,Dry food pouch,7.18,17,1,30,20.7
+P0082,Electronics,Phone box,0.23,69,1,41,10.4
+P0083,Cosmetics,Bottle carton,1.11,45,1,65,1.17
+P0084,Clothing,Accessory pouch,3.17,9,0,92,11.73
+P0085,Healthcare,Medicine carton,3.17,8,1,74,6.04
+P0086,E-commerce,Mailer pack,0.33,19,1,42,12.11
+P0087,Home Goods,Decor item box,1.86,13,0,36,6.65
+P0088,Books,Book mailer,7.16,35,1,60,19.83
+P0089,Toys,Game pack,3.54,28,0,61,12.97
+P0090,Personal Care,Toiletry pack,6.45,13,0,45,12.36
+P0091,Food,Snack box,0.18,42,1,43,4.76
+P0092,Electronics,Accessory box,7.86,50,0,51,2.0
+P0093,Cosmetics,Makeup box,1.84,28,1,41,12.87
+P0094,Clothing,Apparel mailer,2.78,62,1,73,18.54
+P0095,Healthcare,Medical supply pack,3.54,69,1,69,20.05
+P0096,E-commerce,Parcel box,1.26,62,0,78,3.72
+P0097,Home Goods,Glassware box,6.46,59,1,38,11.96
+P0098,Books,Paperback wrap,4.01,2,0,76,21.99
+P0099,Toys,Toy accessory pack,3.74,10,1,38,5.21
+P0100,Personal Care,Soap box,7.28,93,0,44,17.89
+P0101,Food,Takeaway container,4.78,95,1,20,20.4
+P0102,Electronics,Device protective pack,6.3,55,0,55,5.13
+P0103,Cosmetics,Cream box,6.39,15,0,51,5.64
+P0104,Clothing,Shoe box,5.49,12,0,44,8.91
+P0105,Healthcare,Personal care pack,6.9,69,0,57,5.26
+P0106,E-commerce,Shipping box,5.23,55,0,52,20.06
+P0107,Home Goods,Kitchen item pack,3.61,93,0,78,20.54
+P0108,Books,Stationery box,7.01,92,0,20,18.54
+P0109,Toys,Toy box,6.87,72,0,25,4.5
+P0110,Personal Care,Shampoo carton,3.19,12,0,61,12.07
+P0111,Food,Dry food pouch,0.7,16,0,40,10.16
+P0112,Electronics,Phone box,0.56,58,1,68,20.48
+P0113,Cosmetics,Bottle carton,2.88,37,1,54,14.2
+P0114,Clothing,Accessory pouch,4.11,9,1,38,2.75
+P0115,Healthcare,Medicine carton,5.11,61,0,69,4.54
+P0116,E-commerce,Mailer pack,7.54,96,0,65,19.26
+P0117,Home Goods,Decor item box,4.74,1,0,72,21.59
+P0118,Books,Book mailer,0.41,94,1,52,10.03
+P0119,Toys,Game pack,5.49,56,1,44,20.85
+P0120,Personal Care,Toiletry pack,7.49,65,1,58,1.52
+P0121,Food,Snack box,7.71,10,0,53,17.12
+P0122,Electronics,Accessory box,7.51,50,0,68,20.77
+P0123,Cosmetics,Makeup box,6.68,73,1,58,1.27
+P0124,Clothing,Apparel mailer,5.78,18,1,67,5.55
+P0125,Healthcare,Medical supply pack,7.1,87,0,76,3.2
+P0126,E-commerce,Parcel box,4.25,75,0,43,3.48
+P0127,Home Goods,Glassware box,6.37,16,0,49,18.81
+P0128,Books,Paperback wrap,5.86,26,0,55,3.02
+P0129,Toys,Toy accessory pack,6.47,36,0,68,13.97
+P0130,Personal Care,Soap box,7.55,19,1,76,7.16
+P0131,Food,Takeaway container,0.45,4,0,47,11.34
+P0132,Electronics,Device protective pack,4.89,56,1,53,10.48
+P0133,Cosmetics,Cream box,7.87,97,1,51,13.0
+P0134,Clothing,Shoe box,1.08,77,1,67,19.29
+P0135,Healthcare,Personal care pack,0.52,63,0,60,17.68
+P0136,E-commerce,Shipping box,4.4,30,0,65,4.16
+P0137,Home Goods,Kitchen item pack,7.98,80,1,82,18.78
+P0138,Books,Stationery box,1.3,31,1,43,16.71
+P0139,Toys,Toy box,7.5,96,0,98,6.94
+P0140,Personal Care,Shampoo carton,5.49,25,1,67,12.84
+P0141,Food,Dry food pouch,5.24,45,0,78,10.29
+P0142,Electronics,Phone box,5.6,95,1,47,20.69
+P0143,Cosmetics,Bottle carton,0.36,26,1,60,10.61
+P0144,Clothing,Accessory pouch,1.59,71,1,79,19.54
+P0145,Healthcare,Medicine carton,3.76,96,1,47,3.05
+P0146,E-commerce,Mailer pack,4.19,65,0,52,21.92
+P0147,Home Goods,Decor item box,6.43,18,0,84,1.41
+P0148,Books,Book mailer,3.64,19,0,76,6.61
+P0149,Toys,Game pack,7.73,86,0,53,12.75
+P0150,Personal Care,Toiletry pack,5.32,88,0,55,5.5
+P0151,Food,Snack box,2.61,95,0,72,17.71
+P0152,Electronics,Accessory box,4.52,85,0,63,6.15
+P0153,Cosmetics,Makeup box,7.39,71,1,59,1.3
+P0154,Clothing,Apparel mailer,5.13,52,1,61,7.07
+P0155,Healthcare,Medical supply pack,7.47,8,0,77,14.67
+P0156,E-commerce,Parcel box,5.0,68,1,72,6.04
+P0157,Home Goods,Glassware box,2.06,3,0,39,4.45
+P0158,Books,Paperback wrap,5.99,93,1,72,16.22
+P0159,Toys,Toy accessory pack,5.06,72,0,65,12.42
+P0160,Personal Care,Soap box,2.73,30,0,60,5.75
+P0161,Food,Takeaway container,1.08,29,0,72,4.11
+P0162,Electronics,Device protective pack,5.96,68,1,93,6.68
+P0163,Cosmetics,Cream box,6.17,40,0,78,3.99
+P0164,Clothing,Shoe box,7.55,29,1,64,2.12
+P0165,Healthcare,Personal care pack,5.13,52,0,56,5.5
+P0166,E-commerce,Shipping box,3.87,39,1,76,4.29
+P0167,Home Goods,Kitchen item pack,5.25,72,1,52,9.22
+P0168,Books,Stationery box,7.11,85,0,53,10.39
+P0169,Toys,Toy box,3.15,38,0,43,13.53
+P0170,Personal Care,Shampoo carton,1.85,67,0,38,13.64
+P0171,Food,Dry food pouch,1.33,17,0,69,1.33
+P0172,Electronics,Phone box,7.79,22,1,50,6.49
+P0173,Cosmetics,Bottle carton,7.12,64,0,39,4.48
+P0174,Clothing,Accessory pouch,5.78,89,1,35,4.8
+P0175,Healthcare,Medicine carton,0.24,11,0,62,16.54
+P0176,E-commerce,Mailer pack,7.36,58,0,79,11.42
+P0177,Home Goods,Decor item box,2.56,96,0,43,14.08
+P0178,Books,Book mailer,0.7,42,1,61,16.92
+P0179,Toys,Game pack,7.26,49,0,70,5.08
+P0180,Personal Care,Toiletry pack,0.64,63,0,77,21.33
+P0181,Food,Snack box,7.34,64,0,49,11.45
+P0182,Electronics,Accessory box,7.63,93,1,49,20.25
+P0183,Cosmetics,Makeup box,0.15,10,0,29,16.57
+P0184,Clothing,Apparel mailer,6.09,80,1,54,16.62
+P0185,Healthcare,Medical supply pack,1.76,96,0,60,4.06
+P0186,E-commerce,Parcel box,3.17,36,0,46,1.19
+P0187,Home Goods,Glassware box,0.44,53,1,32,5.97
+P0188,Books,Paperback wrap,6.47,27,1,28,20.87
+P0189,Toys,Toy accessory pack,1.91,75,0,83,15.71
+P0190,Personal Care,Soap box,6.9,85,0,77,6.07
+P0191,Food,Takeaway container,3.38,66,0,70,21.56
+P0192,Electronics,Device protective pack,4.25,66,1,50,5.38
+P0193,Cosmetics,Cream box,3.77,68,1,36,12.01
+P0194,Clothing,Shoe box,2.19,7,1,50,7.29
+P0195,Healthcare,Personal care pack,0.53,58,1,20,10.12
+P0196,E-commerce,Shipping box,7.27,76,0,46,4.93
+P0197,Home Goods,Kitchen item pack,3.25,12,0,67,3.92
+P0198,Books,Stationery box,2.71,82,1,49,7.77
+P0199,Toys,Toy box,5.52,59,0,77,20.5
+P0200,Personal Care,Shampoo carton,2.51,36,0,59,21.88
+P0201,Food,Dry food pouch,6.02,5,1,64,1.41
+P0202,Electronics,Phone box,2.47,36,0,33,19.77
+P0203,Cosmetics,Bottle carton,1.63,13,0,77,2.38
+P0204,Clothing,Accessory pouch,5.6,80,1,65,21.49
+P0205,Healthcare,Medicine carton,1.79,75,1,82,7.74
+P0206,E-commerce,Mailer pack,5.8,65,0,61,1.43
+P0207,Home Goods,Decor item box,1.92,31,0,78,20.15
+P0208,Books,Book mailer,4.31,91,1,45,17.64
+P0209,Toys,Game pack,1.36,10,0,45,12.28
+P0210,Personal Care,Toiletry pack,4.47,74,0,61,2.41
+P0211,Food,Snack box,7.04,28,1,41,12.19
+P0212,Electronics,Accessory box,5.84,37,0,32,1.79
+P0213,Cosmetics,Makeup box,5.58,84,0,56,14.19
+P0214,Clothing,Apparel mailer,5.36,92,0,47,1.34
+P0215,Healthcare,Medical supply pack,1.13,13,1,27,10.25
+P0216,E-commerce,Parcel box,2.41,4,1,81,17.3
+P0217,Home Goods,Glassware box,0.37,55,0,50,15.43
+P0218,Books,Paperback wrap,5.23,23,0,53,12.58
+P0219,Toys,Toy accessory pack,0.54,70,0,32,16.51
+P0220,Personal Care,Soap box,2.68,87,1,67,18.98
+P0221,Food,Takeaway container,3.01,21,0,34,7.39
+P0222,Electronics,Device protective pack,1.48,5,0,67,8.24
+P0223,Cosmetics,Cream box,1.58,46,0,62,17.53
+P0224,Clothing,Shoe box,1.06,45,1,49,14.03
+P0225,Healthcare,Personal care pack,2.6,48,1,56,17.13
+P0226,E-commerce,Shipping box,4.28,78,0,76,4.93
+P0227,Home Goods,Kitchen item pack,6.82,75,0,69,6.28
+P0228,Books,Stationery box,0.19,83,1,98,2.74
+P0229,Toys,Toy box,0.33,22,0,49,10.02
+P0230,Personal Care,Shampoo carton,3.66,90,1,56,20.67
+P0231,Food,Dry food pouch,5.47,63,1,39,8.5
+P0232,Electronics,Phone box,2.04,68,1,52,12.16
+P0233,Cosmetics,Bottle carton,5.54,27,1,49,16.73
+P0234,Clothing,Accessory pouch,6.49,6,0,80,6.4
+P0235,Healthcare,Medicine carton,2.84,90,0,53,12.14
+P0236,E-commerce,Mailer pack,0.38,93,1,96,2.43
+P0237,Home Goods,Decor item box,4.24,35,0,37,3.13
+P0238,Books,Book mailer,5.86,84,1,24,4.96
+P0239,Toys,Game pack,3.1,23,0,82,7.93
+P0240,Personal Care,Toiletry pack,1.35,79,0,46,10.33
+P0241,Food,Snack box,6.28,68,1,23,10.86
+P0242,Electronics,Accessory box,2.39,31,0,57,19.55
+P0243,Cosmetics,Makeup box,5.36,69,1,56,18.93
+P0244,Clothing,Apparel mailer,5.14,66,0,85,15.7
+P0245,Healthcare,Medical supply pack,0.13,41,0,63,19.93
+P0246,E-commerce,Parcel box,2.84,31,0,44,8.85
+P0247,Home Goods,Glassware box,0.32,98,0,63,8.62
+P0248,Books,Paperback wrap,0.22,35,1,68,10.4
+P0249,Toys,Toy accessory pack,6.41,32,1,98,4.09
+P0250,Personal Care,Soap box,3.34,26,1,79,8.79
+P0251,Food,Takeaway container,1.04,72,0,48,18.05
+P0252,Electronics,Device protective pack,5.03,32,0,74,7.95
+P0253,Cosmetics,Cream box,7.28,93,0,24,12.22
+P0254,Clothing,Shoe box,6.64,38,0,65,7.09
+P0255,Healthcare,Personal care pack,5.83,39,0,42,7.73
+P0256,E-commerce,Shipping box,3.63,74,0,20,10.18
+P0257,Home Goods,Kitchen item pack,0.78,7,0,67,3.44
+P0258,Books,Stationery box,7.66,34,0,69,8.45
+P0259,Toys,Toy box,1.42,35,0,58,1.59
+P0260,Personal Care,Shampoo carton,3.57,67,1,38,1.34
+P0261,Food,Dry food pouch,2.03,95,1,49,10.75
+P0262,Electronics,Phone box,3.27,19,1,53,1.0
+P0263,Cosmetics,Bottle carton,3.5,38,1,82,6.24
+P0264,Clothing,Accessory pouch,4.92,14,0,62,16.46
+P0265,Healthcare,Medicine carton,5.66,73,0,72,4.19
+P0266,E-commerce,Mailer pack,1.7,25,1,69,8.27
+P0267,Home Goods,Decor item box,5.34,60,1,54,14.96
+P0268,Books,Book mailer,3.2,36,0,67,12.78
+P0269,Toys,Game pack,2.7,14,0,67,11.49
+P0270,Personal Care,Toiletry pack,7.83,87,0,35,4.06
+P0271,Food,Snack box,3.78,36,0,43,2.39
+P0272,Electronics,Accessory box,1.05,45,0,58,2.0
+P0273,Cosmetics,Makeup box,2.9,50,0,55,20.05
+P0274,Clothing,Apparel mailer,0.47,85,0,73,19.61
+P0275,Healthcare,Medical supply pack,6.92,98,1,64,21.88
+P0276,E-commerce,Parcel box,6.39,98,1,36,4.4
+P0277,Home Goods,Glassware box,1.97,84,0,69,18.25
+P0278,Books,Paperback wrap,0.16,54,1,79,21.11
+P0279,Toys,Toy accessory pack,5.6,59,0,57,10.57
+P0280,Personal Care,Soap box,1.73,9,1,38,17.79
+P0281,Food,Takeaway container,1.28,69,0,36,7.64
+P0282,Electronics,Device protective pack,2.69,61,1,38,3.29
+P0283,Cosmetics,Cream box,3.22,100,1,80,13.46
+P0284,Clothing,Shoe box,6.3,34,1,55,5.06
+P0285,Healthcare,Personal care pack,0.98,77,0,51,20.67
+P0286,E-commerce,Shipping box,1.24,91,1,52,20.63
+P0287,Home Goods,Kitchen item pack,3.76,93,0,69,12.55
+P0288,Books,Stationery box,4.44,56,1,56,8.34
+P0289,Toys,Toy box,4.78,19,0,58,14.45
+P0290,Personal Care,Shampoo carton,0.89,88,1,44,18.69
+P0291,Food,Dry food pouch,5.5,7,0,30,5.58
+P0292,Electronics,Phone box,4.65,64,0,30,11.01
+P0293,Cosmetics,Bottle carton,1.53,13,0,52,16.02
+P0294,Clothing,Accessory pouch,7.01,80,1,71,10.1
+P0295,Healthcare,Medicine carton,1.38,1,1,43,8.1
+P0296,E-commerce,Mailer pack,1.9,65,1,58,8.57
+P0297,Home Goods,Decor item box,3.11,32,1,82,8.09
+P0298,Books,Book mailer,7.9,18,0,56,9.41
+P0299,Toys,Game pack,4.81,94,0,44,4.56
+P0300,Personal Care,Toiletry pack,5.46,75,0,75,14.71
