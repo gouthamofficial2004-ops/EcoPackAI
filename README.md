@@ -1,8 +1,14 @@
 # EcoPackAI – AI-Powered Sustainable Packaging Recommendation System
 
-**EcoPackAI** is an AI-powered sustainable packaging recommendation system designed to help users identify and compare eco-friendly packaging alternatives based on product requirements, estimated cost, material properties and environmental impact.
+**EcoPackAI** is an AI-powered sustainable packaging recommendation system designed to help users identify and compare eco-friendly packaging alternatives based on product requirements, estimated cost, material properties and environmental characteristics.
 
 The project integrates Machine Learning, data analytics, a Flask backend, PostgreSQL database and an interactive web-based dashboard to support sustainable packaging decisions.
+
+## 🌐 Live Application
+
+**Live Application:** https://ecopackai-green-intelligence.onrender.com
+
+**GitHub Repository:** https://github.com/gouthamofficial2004-ops/EcoPackAI
 
 ## 🌱 Project Overview
 
@@ -33,47 +39,43 @@ EcoPackAI addresses this challenge through an intelligent recommendation system 
 
 ## 🛠️ Technology Stack
 
-| Category | Technologies |
-|---|---|
-| Programming Language | Python |
-| Backend Framework | Flask |
-| Data Processing | Pandas, NumPy |
-| Machine Learning | Scikit-learn, Random Forest, XGBoost |
-| Model Persistence | Joblib |
-| Database | PostgreSQL |
-| Database Connectivity | SQLAlchemy, Psycopg |
-| Frontend | HTML, CSS, Bootstrap, JavaScript |
-| Data Visualization | Plotly, Matplotlib |
-| Deployment | Render |
+| Category              | Technologies                         |
+| --------------------- | ------------------------------------ |
+| Programming Language  | Python                               |
+| Backend Framework     | Flask                                |
+| Data Processing       | Pandas, NumPy                        |
+| Machine Learning      | Scikit-learn, Random Forest, XGBoost |
+| Model Persistence     | Joblib                               |
+| Database              | PostgreSQL                           |
+| Database Connectivity | SQLAlchemy, Psycopg                  |
+| Frontend              | HTML, CSS, Bootstrap, JavaScript     |
+| Data Visualization    | Plotly, Matplotlib                   |
+| Deployment            | Render                               |
 
 ## 🏗️ System Architecture
 
-The EcoPackAI system follows an integrated architecture:
-
 1. **Data Collection:** Collects product and packaging material information.
-2. **Data Preprocessing:** Cleans and prepares the collected data.
-3. **Feature Engineering:** Extracts relevant features for recommendation and prediction.
+2. **Data Preprocessing:** Cleans and prepares collected data.
+3. **Feature Engineering:** Extracts relevant features for prediction and recommendation.
 4. **Machine Learning:** Uses trained models to estimate packaging cost and CO₂ footprint.
 5. **Recommendation Engine:** Evaluates candidate materials and identifies suitable alternatives.
 6. **Backend Integration:** Processes application requests through Flask APIs.
-7. **Database Management:** Connects to PostgreSQL for data storage and retrieval.
-8. **Dashboard & Visualization:** Presents analytics and sustainability insights through an interactive interface.
+7. **Database Management:** Uses PostgreSQL for data storage and retrieval.
+8. **Dashboard & Visualization:** Presents analytics and sustainability insights.
 
 ## 🤖 Machine Learning Models
 
-EcoPackAI integrates Machine Learning models to support packaging evaluation.
-
-| Model | Purpose |
-|---|---|
-| Random Forest | Packaging cost prediction |
-| XGBoost | CO₂ footprint prediction |
+| Model                  | Purpose                                      |
+| ---------------------- | -------------------------------------------- |
+| Random Forest          | Packaging cost prediction                    |
+| XGBoost                | CO₂ footprint prediction                     |
 | Preprocessing Pipeline | Prepares input features for model prediction |
 
-The trained models and preprocessing artifacts are maintained in the `models/` directory.
+Trained models and preprocessing artifacts are maintained in the `models/` directory.
 
 ## ♻️ Sustainable Packaging Recommendation
 
-The recommendation engine evaluates packaging alternatives using sustainability-related parameters, including:
+The recommendation engine evaluates packaging alternatives using sustainability-related parameters:
 
 - CO₂ footprint
 - Biodegradability
@@ -96,31 +98,33 @@ Dashboard capabilities include:
 - Available filters
 - PDF and Excel report exports
 
-For more information, refer to:
+## 🖥️ UI/UX Screenshots
 
-**[Dashboard Documentation](docs/DASHBOARD.md)**
+The `Screenshot_Demo/` folder contains screenshots showcasing the EcoPackAI user interface, product selection workflow, recommendation pages and Business Intelligence dashboard.
+
+**[Explore EcoPackAI UI/UX Screenshots](Screenshot_Demo/)**
 
 ## 📂 Project Structure
 
 ```text
 EcoPackAI/
 │
-├── backend/          # Flask backend and API integration
-├── dashboard/        # Business Intelligence dashboard
-├── data/             # Project datasets
-├── database/         # Database-related files
-├── docs/             # Project documentation
-│   ├── DASHBOARD.md
-│   └── VIDEO_DEMO.md
-├── frontend/         # User interface
-├── models/           # Trained ML models and preprocessing artifacts
-├── notebooks/        # Data analysis and experimentation
-├── reports/          # Project reports and analysis
-├── src/              # Source code
+├── backend/             # Flask backend and API integration
+├── dashboard/           # Business Intelligence dashboard
+├── dashboard_backup/    # Dashboard backup files
+├── data/                # Project datasets
+├── database/            # Database-related files
+├── frontend/            # User interface
+├── models/              # Trained ML models
+├── notebooks/           # Data analysis and experimentation
+├── reports/             # Project reports and analysis
+├── src/                 # Source code
+├── Screenshot_Demo/     # UI/UX screenshots
 │
-├── requirements.txt  # Python dependencies
+├── README.md
+├── requirements.txt
 ├── .gitignore
-└── README.md
+└── .gitattributes
 ```
 
 ## 📦 Installation and Setup
@@ -173,30 +177,17 @@ pip install -r requirements.txt
 
 Configure PostgreSQL using the environment variables expected by the project.
 
-Make sure the database is running and the required configuration is available before starting the application.
-
-**Important:** Do not upload database passwords, API keys or other sensitive credentials to GitHub.
+Do not upload database passwords, API keys or other sensitive credentials to GitHub.
 
 ### 7. Run the Application
 
 Use the Flask application entry point and start command configured in the project.
 
-## 🌐 Live Deployment
+## 🚀 Deployment
 
-**Live Application:**  
-https://ecopackai-green-intelligence.onrender.com
+EcoPackAI is deployed on Render.
 
-**GitHub Repository:**  
-https://github.com/gouthamofficial2004-ops/EcoPackAI
-
-EcoPackAI is deployed using Render.
-
-## 📚 Project Documentation
-
-Additional documentation is maintained separately to keep the main README focused on the overall project.
-
-- **Dashboard Documentation:** `docs/DASHBOARD.md`
-- **Video Demonstration Guide:** `docs/VIDEO_DEMO.md`
+**Live Application:** https://ecopackai-green-intelligence.onrender.com
 
 ## 🔮 Future Enhancements
 
@@ -204,15 +195,15 @@ Additional documentation is maintained separately to keep the main README focuse
 - Integrate more sustainable packaging materials.
 - Enhance prediction performance through model optimization.
 - Introduce advanced sustainability analytics.
-- Improve the user experience and dashboard functionality.
-- Expand the recommendation engine with additional environmental parameters.
+- Improve dashboard functionality and user experience.
+- Expand recommendations with additional environmental parameters.
 
 ## ⚠️ Project Limitations
 
 - Prediction accuracy depends on the quality and availability of training data.
 - Cost and CO₂ outputs are model-based estimates.
 - Actual environmental impact may vary depending on manufacturing, transportation and disposal conditions.
-- Recommendations depend on the configured eligibility criteria and available material information.
+- Recommendations depend on configured eligibility criteria and available material information.
 
 ## 👨‍💻 Project Information
 
@@ -226,4 +217,4 @@ Additional documentation is maintained separately to keep the main README focuse
 
 ---
 
-*EcoPackAI – Making sustainable packaging decisions smarter through Artificial Intelligence.*
+_EcoPackAI – Making sustainable packaging decisions smarter through Artificial Intelligence._
