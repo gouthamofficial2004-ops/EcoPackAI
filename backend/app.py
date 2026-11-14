@@ -1,14 +1,16 @@
+
 import os
+
 from flask import Flask, jsonify, render_template, request
 from sqlalchemy import text
 
 from src.recommendation_engine import (
     recommend_materials,
-    recommend_materials_for_custom_product,
-    diagnose_custom_product,
+    recommend_and_diagnose_custom_product,
     get_custom_product_warnings,
-    RANKING_WEIGHTS
+    RANKING_WEIGHTS,
 )
+
 from backend.db import get_db_connection
 from dashboard.app import dashboard_bp
 
@@ -23,7 +25,6 @@ app = Flask(
     static_folder="../frontend/static"
 )
 
-# Register BI Dashboard inside the SAME Flask application
 app.register_blueprint(
     dashboard_bp,
     url_prefix="/dashboard"
@@ -298,18 +299,19 @@ def custom_recommendations():
         }), 400
 
     try:
-        # Validate and generate recommendations.
-        # Evaluate all materials so environmental scoring
-        # considers the complete eligible set.
-        all_recommendations = recommend_materials_for_custom_product(
-            custom_product,
-            top_n=120
+        # Generate recommendations and diagnostics
+        # using a single model prediction.
+
+        all_recommendations, diagnosis = (
+            recommend_and_diagnose_custom_product(
+                custom_product,
+                top_n=120
+            )
         )
 
-        # Generate diagnostics and input warnings.
-        diagnosis = diagnose_custom_product(custom_product)
-
-        warnings = get_custom_product_warnings(custom_product)
+        warnings = get_custom_product_warnings(
+            custom_product
+        )
 
         if all_recommendations.empty:
             return jsonify({

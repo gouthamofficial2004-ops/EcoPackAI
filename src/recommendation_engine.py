@@ -69,7 +69,6 @@ CUSTOM_PRODUCT_FIELDS = [
 # 3. LOAD DATASETS
 # --------------------------------------------------
 
-# Small datasets are loaded during application startup.
 materials_df = pd.read_csv(MATERIALS_FILE)
 products_df = pd.read_csv(PRODUCTS_FILE)
 
@@ -77,9 +76,6 @@ products_df = pd.read_csv(PRODUCTS_FILE)
 # --------------------------------------------------
 # 4. LAZY MODEL LOADING
 # --------------------------------------------------
-
-# Models are NOT loaded during application startup.
-# They are loaded only when a prediction is requested.
 
 preprocessor = None
 cost_model = None
@@ -92,7 +88,6 @@ def load_models():
     global cost_model
     global co2_model
 
-    # Avoid loading the models repeatedly.
     if (
         preprocessor is not None
         and cost_model is not None
@@ -106,7 +101,6 @@ def load_models():
     loaded_cost_model = joblib.load(COST_MODEL_FILE)
     loaded_co2_model = joblib.load(CO2_MODEL_FILE)
 
-    # Assign only after all three models load successfully.
     preprocessor = loaded_preprocessor
     cost_model = loaded_cost_model
     co2_model = loaded_co2_model
@@ -287,7 +281,6 @@ def build_candidates(product_data):
 
 def predict_candidates(candidates):
 
-    # Load models only when a prediction is required.
     load_models()
 
     features = candidates[MODEL_FEATURES].copy()
@@ -545,6 +538,40 @@ def diagnose_candidates(candidates):
     }
 
 
+# --------------------------------------------------
+# 15. SINGLE-PASS CUSTOM RECOMMENDATION + DIAGNOSIS
+# --------------------------------------------------
+
+def recommend_and_diagnose_custom_product(
+    product_data,
+    top_n=10
+):
+    """
+    Generate recommendations and diagnostics using one
+    model prediction instead of predicting twice.
+    """
+
+    validate_top_n(top_n)
+
+    validated_product = validate_custom_product(product_data)
+
+    candidates = build_candidates(validated_product)
+
+    candidates = predict_candidates(candidates)
+
+    candidates = evaluate_candidates(candidates)
+
+    diagnosis = diagnose_candidates(candidates)
+
+    recommendations = rank_candidates(candidates, top_n)
+
+    return recommendations, diagnosis
+
+
+# --------------------------------------------------
+# 16. EXISTING PRODUCT DIAGNOSIS
+# --------------------------------------------------
+
 def diagnose_product(product_id):
 
     product_matches = products_df[
@@ -567,6 +594,10 @@ def diagnose_product(product_id):
     return diagnose_candidates(candidates)
 
 
+# --------------------------------------------------
+# 17. CUSTOM PRODUCT DIAGNOSIS
+# --------------------------------------------------
+
 def diagnose_custom_product(product_data):
 
     validated_product = validate_custom_product(
@@ -585,7 +616,7 @@ def diagnose_custom_product(product_data):
 
 
 # --------------------------------------------------
-# 15. INPUT RANGE WARNINGS
+# 18. INPUT RANGE WARNINGS
 # --------------------------------------------------
 
 def get_custom_product_warnings(product_data):
