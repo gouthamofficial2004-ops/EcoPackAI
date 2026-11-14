@@ -87,7 +87,7 @@ The system uses these criteria to evaluate and rank eligible packaging alternati
 
 ## 📊 Business Intelligence Dashboard
 
-The EcoPackAI dashboard provides visual insights into packaging materials, product information and sustainability-related analytics.
+The EcoPackAI Business Intelligence dashboard provides visual insights into packaging materials, product information and sustainability-related analytics.
 
 Dashboard capabilities include:
 
@@ -114,12 +114,12 @@ EcoPackAI/
 ├── dashboard_backup/    # Dashboard backup files
 ├── data/                # Project datasets
 ├── database/            # Database-related files
-├── frontend/            # User interface
-├── models/              # Trained ML models
-├── notebooks/           # Data analysis and experimentation
-├── reports/             # Project reports and analysis
-├── src/                 # Source code
-├── Screenshot_Demo/     # UI/UX screenshots
+├── frontend/             # User interface
+├── models/               # Trained ML models
+├── notebooks/            # Data analysis and experimentation
+├── reports/              # Project reports and analysis
+├── src/                  # Source code
+├── Screenshot_Demo/      # UI/UX screenshots
 │
 ├── README.md
 ├── requirements.txt
